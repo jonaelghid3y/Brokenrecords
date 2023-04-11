@@ -27,13 +27,10 @@ const Products = () => {
       {productList.map((products) =>
       <li className='productListItem' key={products._id}> 
       <img src="../../imgs/0916.apnews.steelydanlps_0.jpg" alt="" />
-      <br />
-      <a href="#">{products.title} {products.price}kr</a>
-      <br />
       <h5>{products.title} </h5>
       <p>{products.price}kr</p>
       <a href="#">Read More</a>
-      <button>Add To Cart</button>
+      <button><img src="../../imgs/352007_add_cart_shopping_icon.svg" alt="" className='shoppingCartIcon' /></button>
       </li>
       )}
     </ul>
