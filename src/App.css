@@ -4,7 +4,7 @@
 padding: 0;
   text-align: center;
   border: 1px solid black;
-  height: 740px;
+  min-height: 740px;
   display: flex;
   flex-direction: column;
   
@@ -26,8 +26,8 @@ padding: 0;
   gap: 40px;
 }
 .pagediv{
-  border: 1px solid black;
-  height: 535px;
+  border: 1px solid black; 
+  min-height: 535px;
 }
 #footer{
   height: 100px;
@@ -43,9 +43,18 @@ img{
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+  justify-content: space-evenly;
+  padding-left: 0;
+  gap: 20px;
 }
 .productListItem {
-  width: 33.33%; /* Set the width to 33.33% to limit to 3 items per row */
-  padding: 10px;
+  width: 30%; 
   box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 10px;
+  
+}
+.shoppingCartIcon{
+  max-width: 20px;
+  max-height: 20px;
 }
