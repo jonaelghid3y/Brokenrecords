@@ -1,8 +1,26 @@
 import React from 'react'
+import { useState, useEffect } from "react"
 
 const Products = () => {
+  const [productList, setProductList] = useState([]);
+  async function fetchProducts() {
+    const response = await fetch("https://product-api-production-7dbf.up.railway.app/products")
+    const productList = await response.json();
+    setProductList(productList);
+  }
+  fetchProducts();
   return (
-    <div>Products</div>
+    <ul className='productUL'>
+      {productList.map((products) =>
+      <li className='productListItem' key={products._id}> 
+      <img src="../../imgs/0916.apnews.steelydanlps_0.jpg" alt="" />
+      <br />
+      <a href="#">{products.title} {products.price}kr</a>
+      <br />
+      <button>Add To Cart</button>
+      </li>
+      )}
+    </ul>
   )
 }
 
