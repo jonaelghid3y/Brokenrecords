@@ -10,6 +10,7 @@ const Products = () => {
   }
   fetchProducts();
   return (
+    <div className='pagediv'>
     <ul className='productUL'>
       {productList.map((products) =>
       <li className='productListItem' key={products._id}> 
@@ -21,6 +22,7 @@ const Products = () => {
       </li>
       )}
     </ul>
+    </div>
   )
 }
 
