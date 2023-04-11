@@ -28,11 +28,24 @@ padding: 0;
 .pagediv{
   border: 1px solid black;
   height: 535px;
-  
 }
 #footer{
   height: 100px;
   border: 1px solid black;
   
 
+}
+img{
+  max-width: 350px;
+  max-height: 350px;
+}
+.productUL {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+.productListItem {
+  width: 33.33%; /* Set the width to 33.33% to limit to 3 items per row */
+  padding: 10px;
+  box-sizing: border-box;
 }
