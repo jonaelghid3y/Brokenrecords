@@ -18,10 +18,9 @@ const Products = () => {
       {productList.map((products) =>
       <li className='productListItem' key={products._id}> 
       <img src="../../imgs/0916.apnews.steelydanlps_0.jpg" alt="" />
-      <br />
-      <p>{products.title} {products.price}kr</p>
+      <h5>{products.title} </h5>
+      <p>{products.price}kr</p>
       <a href="#">Read More</a>
-      <br />
       <button>Add To Cart</button>
       </li>
       )}
