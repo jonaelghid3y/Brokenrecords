@@ -19,7 +19,6 @@ const Product = () => {
 
   return (
     <div>
-      <h1>hwj</h1>
       {item.map((product, index) => (
         <div key={index}>
           <h2>{product.title}</h2>

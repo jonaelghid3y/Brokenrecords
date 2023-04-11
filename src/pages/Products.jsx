@@ -1,8 +1,19 @@
 import React from 'react'
 import { useState, useEffect } from "react"
 
+
 const Products = () => {
   const [productList, setProductList] = useState([]);
+ 
+  useEffect(() => {
+    async function fetchProducts() {
+      const response = await fetch("https://product-api-production-7dbf.up.railway.app/products")
+      const productList = await response.json();
+      setProductList(productList);
+    }
+    fetchProducts();
+  }, []);
+ 
   async function fetchProducts() {
     const response = await fetch("https://product-api-production-7dbf.up.railway.app/products")
     const productList = await response.json();
@@ -10,6 +21,7 @@ const Products = () => {
   }
   fetchProducts();
   return (
+
     <div className='pagediv'>
     <ul className='productUL'>
       {productList.map((products) =>
