@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 
 const Product = () => {
@@ -12,16 +12,20 @@ const Product = () => {
       );
       const data = await response.json();
       setItem(data);
+      console.log(data);
     }
+    fetchItem();
     
-    function handleSearchChange(e) {
-      setSearchQuery(e.target.value);
-      fetchItem();
-    }
   return (
-    <div className='movies'>
-          
-    </div>
+    <div>
+    {item.map((product, index) => (
+      <div key={index}>
+        <h2>{product.title}</h2>
+        <p>{product.description}</p>
+        <img src={product.image_url} alt={product.title} />
+      </div>
+    ))}
+  </div>
   )
 }
 
