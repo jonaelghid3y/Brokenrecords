@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react"
-
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
@@ -22,18 +22,19 @@ const Products = () => {
   fetchProducts();
   return (
 
+ // Genre : {products.category}
+
+
     <div className='pagediv'>
     <ul className='productUL'>
       {productList.map((products) =>
       <li className='productListItem' key={products._id}> 
-      <img src="../../imgs/0916.apnews.steelydanlps_0.jpg" alt="" />
-      <br />
-      <a href="#">{products.title} {products.price}kr</a>
-      <br />
-      <h5>{products.title} </h5>
+      <img className='bigListImage' src={products.image} alt="" />
+      <h4>{products.title} </h4>
+      <h5>{products.description}  {products.releaseyear}</h5>
       <p>{products.price}kr</p>
-      <a href="#">Read More</a>
-      <button>Add To Cart</button>
+      <Link to="/Product" >  Read More </Link>
+      <button><img src="../../imgs/352007_add_cart_shopping_icon.svg" alt="" className='shoppingCartIcon' /></button>
       </li>
       )}
     </ul>
