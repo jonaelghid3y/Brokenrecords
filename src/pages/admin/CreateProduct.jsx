@@ -9,9 +9,7 @@ const CreateProduct = () => {
   const [stock, setStock] = useState("")
   const [image, setImage] = useState("")
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
+  async function handleSubmit(e) {
     const formData = {
       title,
       description,
