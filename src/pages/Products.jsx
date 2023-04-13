@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react"
-
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
@@ -29,7 +29,7 @@ const Products = () => {
       <img src="../../imgs/0916.apnews.steelydanlps_0.jpg" alt="" />
       <h5>{products.title} </h5>
       <p>{products.price}kr</p>
-      <a href="#">Read More</a>
+      <Link to="/Product" >  Read More </Link>
       <button><img src="../../imgs/352007_add_cart_shopping_icon.svg" alt="" className='shoppingCartIcon' /></button>
       </li>
       )}
