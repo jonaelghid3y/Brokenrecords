@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
+
 const ProductDetails = ({ match }) => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
     async function fetchProduct() {
-      const response = await fetch(`https://product-api-production-7dbf.up.railway.app/products`);
-      const data = await response.json();
+      const response = await fetch(`https://product-api-production-7dbf.up.railway.app/products`);    
+       const data = await response.json();
       setProduct(data);
       console.log(data);
     }
