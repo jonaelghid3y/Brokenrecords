@@ -44,7 +44,7 @@ const ManageProducts = () => {
 
   return (
 
-    <div className="pagediv">
+    <div id="manageproductspage">
 
       <Link to="/createProduct">Lägg till</Link>
 
