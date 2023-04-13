@@ -7,6 +7,7 @@ const CreateProduct = () => {
   const [releaseyear, setReleaseYear] = useState('');
   const [price, setPrice] = useState("")
   const [stock, setStock] = useState("")
+  const [image, setImage] = useState("")
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -17,7 +18,8 @@ const CreateProduct = () => {
       price,
       stock,
       category,
-      releaseyear
+      releaseyear,
+      image
     };
 
     try {
@@ -42,10 +44,11 @@ const CreateProduct = () => {
       <form onSubmit={handleSubmit} id='createProductForm'>
         <input type="text" className='titleInput' placeholder='Album Title' value={title} onChange={e => setTitle(e.target.value)} />
         <input type="text" className='artistInput' placeholder='Artist Name' value={description} onChange={e => setDescription(e.target.value)} />
+        <input type="text" className='releaseYearInput' pattern="[0-9]{4}" placeholder='Release Year' value={releaseyear} onChange={e => setReleaseYear(e.target.value)} />
+        <input type="text" className='genreInput' placeholder='Music Genre' value={category} onChange={e => setCategory(e.target.value)} />
         <input type="number" className='priceInput' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)}/>
         <input type="number" className='stockInput' placeholder='Stock' value={stock} onChange={e => setStock(e.target.value)}/>
-        <input type="text" className='genreInput' placeholder='Music Genre' value={category} onChange={e => setCategory(e.target.value)} />
-        <input type="text" className='releaseYearInput' pattern="[0-9]{4}" placeholder='Release Year' value={releaseyear} onChange={e => setReleaseYear(e.target.value)} />
+        <input type="text" className='imageURLInput' placeholder='Image URL' value={image} onChange={e => setImage(e.target.value)}/>  
         <input type="submit" className='addProduct' value="Add Product"/> 
       </form>
     </div>

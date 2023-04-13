@@ -54,7 +54,7 @@ padding: 0;
   
   justify-items: center;
 }
-.titleInput, .releaseYearInput, .artistInput, .addProduct, .genreInput, .stockInput, .priceInput{
+input{
   margin: 15px;
 }
 .bigListImage{
