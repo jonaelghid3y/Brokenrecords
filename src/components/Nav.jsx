@@ -6,8 +6,8 @@ const Nav = () => {
   return (
 
     <nav id="nav">
-      <Link to="/" className={`länkar ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
-      <Link to="/Manageproducts" className={`länkar ${location.pathname === '/Manageproducts' ? 'active' : ''}`}>Manageproducts</Link>
+      <Link to="/" className={`länkar ${location.pathname === '/' ? 'active' : ''}`}>Products</Link>
+      <Link to="/Manageproducts" className={`länkar ${location.pathname === '/Manageproducts' ? 'active' : ''}`}>Admin</Link>
       <Link to="/Checkout" className={`länkar ${location.pathname === '/Checkout' ? 'active' : ''}`}>Cart</Link>
     </nav>
   )
