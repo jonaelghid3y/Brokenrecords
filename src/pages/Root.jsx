@@ -6,11 +6,11 @@ import { Outlet, useLocation } from 'react-router-dom'; // Updated import
 
 const Root = () => {
     return (
-        <div id="rootdiv">
+        <>
             <Header />
             <Outlet />
             <Footer />
-        </div>
+        </>
     );
 };
 
