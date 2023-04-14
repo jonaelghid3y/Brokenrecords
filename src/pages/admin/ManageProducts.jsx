@@ -46,11 +46,12 @@ const ManageProducts = () => {
 
     <div id="manageproductspage">
 
-      <Link to="/createProduct">Lägg till</Link>
+     
 
 
 
       <h1> Manageproduct</h1>
+      <Link id="createproductnavigering"to="/createProduct">Lägg till<img id="plusbild"src="../../imgs/9023850_plus_circle_fill_icon.png"/> </Link>
       <table id="table">
 
         <thead>
@@ -96,7 +97,7 @@ const ManageProducts = () => {
 
       </table>
 
-
+    
 
     </div>
   )
