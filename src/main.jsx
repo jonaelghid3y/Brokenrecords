@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import './reset.css'
+import './App.css'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,16 +13,17 @@ import Checkout from './pages/Checkout'
 import CreateProduct from './pages/admin/CreateProduct'
 import ManageProducts from './pages/admin/ManageProducts'
 import UpdateProduct from './pages/admin/UpdateProduct';
+import CartContextProvider from './components/CartContext';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    
+
     children: [
       {
         path: "/",
-        element: < Products/>,
+        element: < Products />,
       },
       {
         path: "/Product/:id",
@@ -30,31 +31,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/Checkout",
-        element: <Checkout/>,
+        element: <Checkout />,
       },
       {
-        path: "/CreateProduct",
-        element: <CreateProduct/>,
+        path: "admin/CreateProduct",
+        element: <CreateProduct />,
       },
       {
-        path: "/ManageProducts",
-        element: <ManageProducts/>,
+        path: "admin/ManageProducts",
+        element: <ManageProducts />,
       },
       {
-        path: "/UpdateProduct/:id",
-        element: <UpdateProduct/>,
+        path: "admin/UpdateProduct/:id",
+        element: <UpdateProduct />,
       },
-    
+
     ]
   },
- 
+
 ]);
-
-
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartContextProvider>
+      <RouterProvider router={router} />
+    </CartContextProvider>
   </React.StrictMode>,
 )
