@@ -93,6 +93,8 @@ input {
   gap: 5px;
 }
 
+
+
 .productListItem {
   width: 20%;
   border: 1px solid black;
@@ -103,8 +105,16 @@ input {
   align-self: flex-end;
   
 }
+
+
+
 .albumInfo{
   font-size: 20px;
+}
+.albumTitle{
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
 }
 .priceTag{
   font-size: 20px;
@@ -122,13 +132,32 @@ input {
   align-items: center;
   background-color: rgb(255, 255, 255);
   font-size: 25px;
-  
   color: black;
-
+}
+.shoppingCartIcon{
+  justify-items: center;
 }
 
+/* SLIDESHOW PRODUCTS */
 
-
+.slideshowUL {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+  background-color: #6e6e6e;
+}
+.slideshowDIV{
+  max-width: 100%;
+  overflow: hidden;
+}
+.slideShowImage{
+  max-height: 300px;
+}
+.productListItemSS {
+  min-width: 100vw;
+  
+}
 
 
 
