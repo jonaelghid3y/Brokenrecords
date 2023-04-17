@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../components/CartContext';
+import Cart from '../components/Cart'
+
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
@@ -17,6 +19,8 @@ const Products = () => {
 
   return (
     <div className='pagediv'>
+      
+      
       <ul className='productUL'>
         {productList.map((products) =>
           <li className='productListItem' key={products._id}>

@@ -21,7 +21,26 @@ body {
 
 #nav {
   display: flex;
+  align-items: center;
   gap: 40px;
+}
+#cartbutton{
+  
+  display: flex;
+  align-items: center;
+
+}
+#cartcount{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(224, 103, 11);
+  color: white;
 }
 
 .pagediv {
@@ -170,8 +189,9 @@ input {
 .updateButton:hover {
   background-color: #4a4e52;
 }
-
-
+#carticon{
+ 
+}
 
 
 #createproductnavigering{

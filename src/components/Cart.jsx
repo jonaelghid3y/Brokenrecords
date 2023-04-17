@@ -1,3 +1,6 @@
+// Cart.jsx
+import React from 'react';
+
 const Cart = ({ cart }) => {
   const totalPrice = cart.reduce((total, product) => total + product.price, 0);
 
