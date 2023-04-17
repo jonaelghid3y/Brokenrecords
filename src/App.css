@@ -107,7 +107,7 @@ input {
   font-size: 20px;
 }
 .priceTag{
-  padding-left: 20px;
+  font-size: 20px;
 }
 .topRowProducts{
   display: flex;
@@ -118,10 +118,11 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 15px;
   align-items: center;
   background-color: rgb(255, 255, 255);
   font-size: 25px;
-  padding-left: 15px;
+  
   color: black;
 
 }

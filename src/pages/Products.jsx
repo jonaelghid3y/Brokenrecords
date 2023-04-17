@@ -25,12 +25,13 @@ const Products = () => {
         {productList.map((products) =>
           <li className='productListItem' key={products._id}>
             <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
-           <div className='topRowProducts'> <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4> <p className='priceTag'> {products.price}kr</p></div> 
+           <div className='topRowProducts'> <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4> </div> 
 
-           <div className='bottomRowProducts'> <h5 className='albumTitle'>  {products.title}</h5>
+           <div className='bottomRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> 
             <button onClick={() => addToCart(products)}> 
               <img src="../../imgs/352007_add_cart_shopping_icon.svg" alt="" className='shoppingCartIcon' />
             </button> 
+            <p className='priceTag'> {products.price}kr</p>
             </div>
             
           </li>
