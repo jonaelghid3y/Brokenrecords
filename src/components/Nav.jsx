@@ -15,8 +15,8 @@ const Nav = ({ cartLength}) => {
         Products
       </Link>
       <Link
-        to="/Manageproducts"
-        className={`länkar ${location.pathname === '/Manageproducts' ? 'active' : ''}`}
+        to="/admin/Manageproducts"
+        className={`länkar ${location.pathname === '/admin/Manageproducts' ? 'active' : ''}`}
       >
         <MdManageAccounts size={40} />
       </Link>
@@ -30,8 +30,6 @@ const Nav = ({ cartLength}) => {
       </Link>
    
       <button id="cartbutton"><AiOutlineShopping size={40}></AiOutlineShopping><span id="cartcount">{cartLength}</span>  </button>
-      
-     
     </nav>
     
   )

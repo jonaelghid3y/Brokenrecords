@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../components/CartContext';
+import uuid4 from "uuid4";
 import Cart from '../components/Cart'
 import { motion, AnimatePresence } from 'framer-motion';
 import {GrChapterNext} from 'react-icons/gr'
@@ -64,10 +65,9 @@ const Products = () => {
 
       <ul className='productUL'>
         {productList.map((products) =>
-          <li className='productListItem' key={products._id}>
+          <li className='productListItem' key={uuid4()}>
             <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
            <div className='topRowProducts'> <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4> </div> 
-
            <div className='bottomRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> 
          
             <button onClick={() => addToCart(products)}  className='shoppingCartIcon'> 
