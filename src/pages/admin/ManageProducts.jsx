@@ -86,7 +86,7 @@ transition: 0.5s;
 
 
 `;
-const Styleddeletebutton = styled.button `
+const Styleddeletebutton = styled.button`
 border-radius: 5px;
 color: white;
 border: none;
@@ -148,8 +148,8 @@ const ManageProducts = () => {
 
       <Styledh1div>
 
-        <h1 id="h1manage" style={{ fontSize: "60px"}}> Manageproducts</h1>
-        <Link id="createproductnavigering" to="/createProduct">Lägg till <Styledimg   id="plusbild" src="../../imgs/9023850_plus_circle_fill_icon.png" /> </Link>
+        <h1 id="h1manage" style={{ fontSize: "60px" }}> Manageproducts</h1>
+        <Link id="createproductnavigering" to="/admin/createProduct">Lägg till <Styledimg id="plusbild" src="../../imgs/9023850_plus_circle_fill_icon.png" /> </Link>
 
       </Styledh1div>
 
@@ -157,7 +157,7 @@ const ManageProducts = () => {
 
       <Styledtable id="table">
 
-        <thead style={{backgroundColor: "rgb(38, 38, 38)" , color: "white"}}>
+        <thead style={{ backgroundColor: "rgb(38, 38, 38)", color: "white" }}>
 
           <tr >
 
@@ -179,13 +179,13 @@ const ManageProducts = () => {
         {productList.map((products) =>
           <tbody key={products['_id']}>
             <Styledtr>
-              <Styledtd><img src={products.image} style={{height: "70px",width: "70px",margin: "0", padding: "0"}}></img></Styledtd>
+              <Styledtd><img src={products.image} style={{ height: "70px", width: "70px", margin: "0", padding: "0" }}></img></Styledtd>
               <Styledtd>{products.title}</Styledtd>
               <Styledtd>{products.description}</Styledtd>
               <Styledtd>{products.releaseyear}</Styledtd>
               <Styledtd>{products.price}</Styledtd>
               <Styledtd>{products.stock}</Styledtd>
-              <Styledtd id="knappcontainer"> <Link id="uppdateraKnapp"to={"/Updateproduct/" + products['_id']}>Ändra</Link><Styleddeletebutton id="raderaKnapp"onClick={() => { deletePun(products['_id']) }}>Ta bort</Styleddeletebutton></Styledtd>
+              <Styledtd id="knappcontainer"> <Link id="uppdateraKnapp" to={"/Updateproduct/" + products['_id']}>Ändra</Link><Styleddeletebutton id="raderaKnapp" onClick={() => { deletePun(products['_id']) }}>Ta bort</Styleddeletebutton></Styledtd>
 
             </Styledtr>
 
