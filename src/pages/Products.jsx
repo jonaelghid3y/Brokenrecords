@@ -20,14 +20,15 @@ const Products = () => {
       <ul className='productUL'>
         {productList.map((products) =>
           <li className='productListItem' key={products._id}>
-            <img className='bigListImage' src={products.image} alt="" />
-            <h4>{products.title}</h4>
-            <h5>{products.description} {products.releaseyear}</h5>
-            <p>{products.price}kr</p>
-            <Link to={"/Product/" + products._id}>Read More</Link>
-            <button onClick={() => addToCart(products)}>
+            <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
+           <div className='topRowProducts'> <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4> <p className='priceTag'> {products.price}kr</p></div> 
+
+           <div className='bottomRowProducts'> <h5 className='albumTitle'>  {products.title}</h5>
+            <button onClick={() => addToCart(products)}> 
               <img src="../../imgs/352007_add_cart_shopping_icon.svg" alt="" className='shoppingCartIcon' />
-            </button>
+            </button> 
+            </div>
+            
           </li>
         )}
       </ul>
