@@ -34,15 +34,15 @@ const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
-        path: "/CreateProduct",
+        path: "admin/CreateProduct",
         element: <CreateProduct />,
       },
       {
-        path: "/ManageProducts",
+        path: "admin/ManageProducts",
         element: <ManageProducts />,
       },
       {
-        path: "/UpdateProduct/:id",
+        path: "admin/UpdateProduct/:id",
         element: <UpdateProduct />,
       },
 
