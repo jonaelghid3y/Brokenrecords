@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../components/CartContext';
 import uuid4 from "uuid4";
+import Cart from '../components/Cart'
 
 
 const Products = () => {
@@ -19,17 +20,20 @@ const Products = () => {
 
   return (
     <div className='pagediv'>
+      
+      
       <ul className='productUL'>
         {productList.map((products) =>
           <li className='productListItem' key={uuid4()}>
-            <img className='bigListImage' src={products.image} alt="" />
-            <h4>{products.title}</h4>
-            <h5>{products.description} {products.releaseyear}</h5>
-            <p>{products.price}kr</p>
-            <Link to={"/Product/" + products._id}>Read More</Link>
-            <button onClick={() => addToCart(products)}>
+            <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
+           <div className='topRowProducts'> <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4> </div> 
+           <div className='bottomRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> 
+            <button onClick={() => addToCart(products)}> 
               <img src="../../imgs/352007_add_cart_shopping_icon.svg" alt="" className='shoppingCartIcon' />
-            </button>
+            </button> 
+            <p className='priceTag'> {products.price}kr</p>
+            </div>
+            
           </li>
         )}
       </ul>

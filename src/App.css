@@ -21,7 +21,26 @@ body {
 
 #nav {
   display: flex;
+  align-items: center;
   gap: 40px;
+}
+#cartbutton{
+  
+  display: flex;
+  align-items: center;
+
+}
+#cartcount{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(224, 103, 11);
+  color: white;
 }
 
 .pagediv {
@@ -35,6 +54,7 @@ body {
   min-height: 535px;
   padding-left: 1rem;
   padding-right: 1rem;
+  background-color: #333333;
 }
 
 #footer {
@@ -60,8 +80,9 @@ input {
 }
 
 .bigListImage {
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: auto auto;
 }
 
 .productUL {
@@ -69,16 +90,42 @@ input {
   flex-wrap: wrap;
   list-style-type: none;
   justify-content: space-evenly;
-  padding-left: 0;
-  gap: 20px;
+  gap: 5px;
 }
 
 .productListItem {
-  width: 30%;
-  box-sizing: border-box;
+  width: 20%;
   border: 1px solid black;
+  border-radius: 10px;
+  background-color: #0b0b0b;
+  margin-top: 25px;
+  overflow: hidden;
+  align-self: flex-end;
+  
 }
+.albumInfo{
+  font-size: 20px;
+}
+.priceTag{
+  font-size: 20px;
+}
+.topRowProducts{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.bottomRowProducts{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  font-size: 25px;
+  
+  color: black;
 
+}
 
 
 
@@ -170,8 +217,9 @@ input {
 .updateButton:hover {
   background-color: #4a4e52;
 }
-
-
+#carticon{
+ 
+}
 
 
 #createproductnavigering{
