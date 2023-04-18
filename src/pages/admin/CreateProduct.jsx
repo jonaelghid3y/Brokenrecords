@@ -28,7 +28,7 @@ const CreateProduct = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
-         
+
         },
         body: JSON.stringify(formData)
       });
@@ -39,6 +39,7 @@ const CreateProduct = () => {
       console.error('Error:', error);
     }
     console.log(formData)
+    navigate('/admin/Manageproducts')
   }
 
   return (
@@ -48,11 +49,11 @@ const CreateProduct = () => {
         <input type="text" className='artistInput' placeholder='Artist Name' value={description} onChange={e => setDescription(e.target.value)} />
         <input type="text" className='releaseYearInput' pattern="[0-9]{4}" placeholder='Release Year' value={releaseyear} onChange={e => setReleaseYear(e.target.value)} />
         <input type="text" className='genreInput' placeholder='Music Genre' value={category} onChange={e => setCategory(e.target.value)} />
-        <input type="number" className='priceInput' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)}/>
-        <input type="number" className='stockInput' placeholder='Stock' value={stock} onChange={e => setStock(e.target.value)}/>
-        <input type="text" className='imageURLInput' placeholder='Image URL' value={image} onChange={e => setImage(e.target.value)}/>  
-        <input type="submit" className='addProduct' value="Add Product"/> 
-        <Link to="/ManageProducts">&#8592; Back</Link>
+        <input type="number" className='priceInput' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)} />
+        <input type="number" className='stockInput' placeholder='Stock' value={stock} onChange={e => setStock(e.target.value)} />
+        <input type="text" className='imageURLInput' placeholder='Image URL' value={image} onChange={e => setImage(e.target.value)} />
+        <input type="submit" className='addProduct' value="Add Product" />
+        <Link to="/admin/ManageProducts">&#8592; Back</Link>
       </form>
     </div>
   );

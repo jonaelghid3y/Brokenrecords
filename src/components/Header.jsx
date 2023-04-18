@@ -1,15 +1,17 @@
-import React from 'react'
-import Nav from '../components/Nav'
+// Header.jsx
+import React, { useContext } from 'react';
+import Nav from './Nav';
+import { CartContext } from './CartContext';
 
 const Header = () => {
+  const cartContext = useContext(CartContext);
+  const { cart } = cartContext;
+
   return (
     <div id="headerdiv">
-
-      <Nav/>
-
-
+      <Nav cartLength={cart.length} />
     </div>
   )
 }
 
-export default Header
+export default Header;

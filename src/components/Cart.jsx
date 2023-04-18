@@ -1,9 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-const Cart = () => {
+const Cart = ({ cart }) => {
+  const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+
   return (
-    <div>Cart</div>
+    <div className='cart__container'>
+      <ul className='cart__ul'>
+        {cart && cart.map((product) =>
+          <li className='cart__li' key={product._id}>
+            <img className='cart__img' src={product.image} alt="" />
+            <h4>{product.title}</h4>
+            <h5>{product.description} {product.releaseyear}</h5>
+            <p>{product.price}kr x {product.quantity}</p>
+          </li>
+        )}
+      </ul>
+      <p>Total price: {totalPrice}kr</p>
+    </div>
   )
 }
 
-export default Cart
+export default Cart;

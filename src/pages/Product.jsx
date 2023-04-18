@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-
-const ProductDetails = ({ match }) => {
-  const [product, setProduct] = useState({});
+const Product = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    async function fetchProduct() {
-      const response = await fetch(`https://product-api-production-7dbf.up.railway.app/products`);    
-       const data = await response.json();
+    const fetchProduct = async () => {
+      const response = await fetch(`https://product-api-production-7dbf.up.railway.app/products/${id}`);
+      const data = await response.json();
       setProduct(data);
-      console.log(data);
-    }
+    };
+
     fetchProduct();
-  }, [match.params.id]);
+  }, [id]);
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -20,7 +25,7 @@ const ProductDetails = ({ match }) => {
       <p>{product.description}</p>
       <img src={product.image_url} alt={product.title} />
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetails;
+export default Product;

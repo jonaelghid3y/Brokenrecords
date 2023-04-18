@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import Cart from '../components/Cart';
+import { CartContext } from '../components/CartContext';
 
 const Checkout = () => {
+  const { cart } = useContext(CartContext);
+
   return (
-    <div className="pagediv">
-
-    <h1> Checkout</h1>
-
-  </div>
+    <>
+      <Cart cart={cart} />
+    </>
   )
 }
 
-export default Checkout
+export default Checkout;
