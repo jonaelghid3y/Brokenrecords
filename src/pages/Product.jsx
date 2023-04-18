@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { CartContext } from '../components/CartContext';
 
 const Product = () => {
   const { id } = useParams();
+  const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
@@ -17,6 +18,13 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
+  const handleAddToCart = () => {
+    if (product.stock > 0) {
+      addToCart(product);
+      setProduct({ ...product, stock: product.stock - 1 });
+    }
+  };
+
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -28,7 +36,7 @@ const Product = () => {
           <ImgContainer src={product.image} alt="" />
         </InfoContainer>
       </ImgBackgroud>
-      <InfoContainer>
+      <TextBox>
         <div>
           <h2>
             {product.description}
@@ -41,17 +49,22 @@ const Product = () => {
           <h3> {product.releaseyear}
           </h3>
         </div>
-        <div>
-          <h5>{product.price}kr</h5>
-          <div>
-            <h5>{product.stock}st</h5>
-          </div>
-        </div>
-        <button>Köp</button>
-      </InfoContainer>
+        <PP>
+          <PriceBox>
+          <h4>{product.price} :-</h4>
+          </PriceBox>
+          <Quantety>
+            <h4>{product.stock} in stock</h4>
+          </Quantety>
+        </PP>
+        <Button onClick={handleAddToCart}>
+          Add to cart
+        </Button>
+      </TextBox>
     </Wrapper>
   );
 };
+
 
 const Title = styled.h1`
   font-size: 45px;
@@ -83,6 +96,51 @@ const ImgContainer = styled.img`
   border-radius: 25px;
   height: 500px;
   width: 500px;
-
 `; 
+
+const TextBox = styled.div `
+  justify-content: center;
+  align-items: center;
+  padding-top: 200px;
+  padding-left: 50px;
+  margin: 30px 50px;
+  text-align: left;
+  height: 700px;
+  width: 600px;
+  border-left: 2px solid black;
+  box-shadow: -20px rgba(0,0,0,0.3);
+`;
+const PP = styled.div `
+  display: flex;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  padding: 10px 0px 10px 0px;
+  
+`;
+const Quantety = styled.div `
+margin-left: 10px; 
+border: 2px solid black;
+padding: 2px 5px;
+border-radius: 3px; 
+`;
+const PriceBox = styled.div`
+background-color: skyblue;
+padding: 2px 5px;
+border-radius: 3px; 
+`;
+
+
+const Button = styled.button`
+  color: limegreen};
+  border: 3px solid limegreen;
+  background: white;
+  margin-top: 40px;
+  font-size: 20px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  width: 200x;
+`;
+
+
+
 export default Product;
