@@ -150,7 +150,7 @@ const TextBox = styled.div `
   margin: 30px 20px 30px 95px;
   
   text-align: left;
-  height: 500px;
+  height: auto;
   width: 600px;
 `;
 

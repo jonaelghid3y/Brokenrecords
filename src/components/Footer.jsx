@@ -2,27 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import {AiOutlineInstagram} from 'react-icons/ai'
 import {AiOutlineTwitter} from 'react-icons/ai'
-import {GrFacebook} from 'react-icons/gr'
-import {BsSpotify} from 'react-icons/bs'
+import {AiFillFacebook} from 'react-icons/ai'
+import {RiSpotifyFill} from 'react-icons/ri'
 
 
 const Footer = () => {
   return (
     <FooterContainer>
       <SocialBox>
-        <Instabox>
-          <AiOutlineInstagram size={45} color='white'/>
-        </Instabox>
-          <TwitterBox>
-            <AiOutlineTwitter size={45} color='white'/>
-          </TwitterBox>
-        <FaceBox>
-          <GrFacebook size={35} color='white'/>
-        </FaceBox>
-          <SpotBox>
-            <BsSpotify size={35} color='white'/>
-          </SpotBox>
-      </SocialBox>
+        <FooterTitle>
+          Follow us:
+          <Instabox>
+            <AiOutlineInstagram size={25} color='white'/>
+            </Instabox>
+              <TwitterBox>
+                <AiOutlineTwitter size={25} color='white'/>
+              </TwitterBox>
+            <FaceBox>
+              <AiFillFacebook size={25} color='white'/>
+            </FaceBox>
+              <SpotBox>
+              <RiSpotifyFill size={25} color='white'/>
+            </SpotBox>
+          </FooterTitle>
+        </SocialBox>
       <FooterContainer2>
         <div>
           About us
@@ -42,29 +45,51 @@ const Footer = () => {
 const FooterContainer = styled.div`
   background: black;
   display: flex;
+  justify-content: center;
+  aline-itenms: center;
   flex-direction: column;
 `;
 
-const SocialBox = styled.div `
+const SocialBox = styled.div`
   display: flex;
-  justify-content: center;
+  width: 500px;
+  
 `;
 
-const Instabox = styled.div `
-  margin: 30px;
-`;
-const TwitterBox = styled.div `
-  margin: 30px;
-`;
-const FaceBox = styled.div `
-  margin: 30px;
-`;
-const SpotBox = styled.div `
-  margin: 30px;
-`;
-
-const FooterContainer2 = styled.div `
+const FooterTitle = styled.h3`
   color: white;
+  display: flex;
+  font-family: 'Lexend', sans-serif;
+  margin: 40px 0px 25px 40px;
+`;
+
+
+const Instabox = styled.div`
+  margin: 30px 30px 0px -95px;
+  padding: 10px;
+
+`;
+const TwitterBox = styled.div`
+  margin: 30px 30px 0px 30px;
+  padding: 10px;
+
+`;
+const FaceBox = styled.div`
+  margin: 30px 30px 0px 30px;
+  padding: 10px;
+
+`;
+const SpotBox = styled.div`
+  margin: 30px 30px 0px 30px;
+  padding: 10px;
+`;
+
+const FooterContainer2 = styled.div`
+  color: white;
+  display: flex;
+  margin: 30px;
+  padding: 10px;
+  border-left: 2px solid white;
 `;
 
 
