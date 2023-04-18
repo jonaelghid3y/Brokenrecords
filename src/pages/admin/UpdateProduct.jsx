@@ -18,9 +18,9 @@ const Styleduppdateproductsdiv = styled.div`
   
   `;
 
-  const UpdateProduct = () => {
+const UpdateProduct = () => {
 
-  
+
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -80,7 +80,7 @@ const Styleduppdateproductsdiv = styled.div`
       });
       console.log(formData)
       // Redirect without page reload
-      navigate("/ManageProducts");
+      navigate("/admin/ManageProducts");
     } catch (error) {
       console.log(error)
     }
@@ -89,73 +89,73 @@ const Styleduppdateproductsdiv = styled.div`
   return (
     <Styleduppdateproductsdiv>
 
-      <h1 style={{margin: "50px", color: "white", fontSize: "60px"}}> Uppdateproduct</h1>
+      <h1 style={{ margin: "50px", color: "white", fontSize: "60px" }}> Uppdateproduct</h1>
       <form id="form" className="formContainer" onSubmit={handleSubmit}>
-  <h4>Album</h4>
-  <input
-    type="text"
-    className="titleInput"
-    placeholder="Album Title"
-    value={title}
-    onChange={(e) => setTitle(e.target.value)}
-  />
-  <h4>Artist</h4>
-  <input
-    type="text"
-    className="artistInput"
-    placeholder="Artist Name"
-    value={description}
-    onChange={(e) => setDescription(e.target.value)}
-  />
-  <h4>Release year</h4>
-  <input
-    type="text"
-    className="releaseYearInput"
-    pattern="[0-9]{4}"
-    placeholder="Release Year"
-    value={releaseyear}
-    onChange={(e) => setReleaseYear(e.target.value)}
-  />
-  <h4>Genre</h4>
-  <input
-    type="text"
-    className="genreInput"
-    placeholder="Music Genre"
-    value={category}
-    onChange={(e) => setCategory(e.target.value)}
-  />
-  <h4>Price</h4>
-  <input
-    type="number"
-    className="priceInput"
-    placeholder="Price"
-    value={price}
-    onChange={(e) => setPrice(e.target.value)}
-  />
-  <h4>Stock</h4>
-  <input
-    type="number"
-    className="stockInput"
-    placeholder="Stock"
-    value={stock}
-    onChange={(e) => setStock(e.target.value)}
-  />
-  <img src={image} className="imagePreview" />
-  <h4>Image URL</h4>
-  <input
-    type="text"
-    className="imageURLInput"
-    placeholder="Image URL"
-    value={image}
-    onChange={(e) => setImage(e.target.value)}
-  />
-   <button className="updateButton">Update</button>
-  <Link to="/Manageproducts" className="backLink">
-    &#8592; Back
-  </Link>
-  
-</form>
-    
+        <h4>Album</h4>
+        <input
+          type="text"
+          className="titleInput"
+          placeholder="Album Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <h4>Artist</h4>
+        <input
+          type="text"
+          className="artistInput"
+          placeholder="Artist Name"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <h4>Release year</h4>
+        <input
+          type="text"
+          className="releaseYearInput"
+          pattern="[0-9]{4}"
+          placeholder="Release Year"
+          value={releaseyear}
+          onChange={(e) => setReleaseYear(e.target.value)}
+        />
+        <h4>Genre</h4>
+        <input
+          type="text"
+          className="genreInput"
+          placeholder="Music Genre"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <h4>Price</h4>
+        <input
+          type="number"
+          className="priceInput"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+        <h4>Stock</h4>
+        <input
+          type="number"
+          className="stockInput"
+          placeholder="Stock"
+          value={stock}
+          onChange={(e) => setStock(e.target.value)}
+        />
+        <img src={image} className="imagePreview" />
+        <h4>Image URL</h4>
+        <input
+          type="text"
+          className="imageURLInput"
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
+        <button className="updateButton">Update</button>
+        <Link to="/admin/Manageproducts" className="backLink">
+          &#8592; Back
+        </Link>
+
+      </form>
+
 
 
 
