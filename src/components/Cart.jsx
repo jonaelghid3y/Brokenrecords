@@ -55,6 +55,7 @@ const Cart = ({ cart }) => {
   <th></th>
   <th>Price</th>
   <th>Stock</th>
+  <th>antal</th>
   <th>lägg till</th>
   <th>Radera</th>
  
@@ -75,7 +76,8 @@ const Cart = ({ cart }) => {
             <Styledtd id="carttable"><h4>{product.title}</h4> <h5>{product.description}</h5>Release date:{product.releaseyear}</Styledtd>
             <Styledtd>{product.price}kr </Styledtd>
             <Styledtd>{product.stock}</Styledtd>
-            <Styledtd></Styledtd>
+            <Styledtd>{product.quantity}</Styledtd>
+            <Styledtd> </Styledtd>
             
             <Styledtd > <button id="" /*</td>onClick={() => { deletePun(product['_id']) }}*/>Ta bort</button></Styledtd>
 
