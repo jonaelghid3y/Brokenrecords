@@ -2,6 +2,14 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: underline;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -24,18 +32,19 @@ body {
   align-items: center;
   gap: 40px;
 }
-#cartbutton{
-  
+
+#cartbutton {
+
   display: flex;
   align-items: center;
 
 }
-#cartcount{
+
+#cartcount {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  margin-right: 20px;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -103,28 +112,32 @@ input {
   margin-top: 25px;
   overflow: hidden;
   align-self: flex-end;
-  
+
 }
 
 
 
-.albumInfo{
+.albumInfo {
   font-size: 20px;
 }
-.albumTitle{
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+
+.albumTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.priceTag{
+
+.priceTag {
   font-size: 20px;
 }
-.topRowProducts{
+
+.topRowProducts {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-.bottomRowProducts{
+
+.bottomRowProducts {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -134,7 +147,8 @@ input {
   font-size: 25px;
   color: black;
 }
-.shoppingCartIcon{
+
+.shoppingCartIcon {
   justify-items: center;
 }
 
@@ -147,16 +161,19 @@ input {
   overflow: hidden;
   background-color: #6e6e6e;
 }
-.slideshowDIV{
+
+.slideshowDIV {
   max-width: 100%;
   overflow: hidden;
 }
-.slideShowImage{
+
+.slideShowImage {
   max-height: 300px;
 }
+
 .productListItemSS {
   min-width: 100vw;
-  
+
 }
 
 
@@ -178,7 +195,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
- background-size: contain;
+  background-size: contain;
 }
 
 .cart__img {
@@ -186,16 +203,17 @@ input {
 }
 
 .formContainer {
-  
+
   background-color: #272424;
   color: #fff;
   padding: 20px;
   border-radius: 5px;
   width: 700px;
- display: flex;
- align-items: center;
- flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -246,12 +264,11 @@ input {
 .updateButton:hover {
   background-color: #4a4e52;
 }
-#carticon{
- 
-}
+
+#carticon {}
 
 
-#createproductnavigering{
+#createproductnavigering {
   width: 200px;
   height: 40px;
   display: flex;
@@ -261,7 +278,7 @@ input {
   text-decoration: none;
   color: white;
   margin-top: 15px;
-  
+
   width: 120px;
   padding: 10px;
   padding-left: 20px;
@@ -269,14 +286,16 @@ input {
   color: #fff;
   border: none;
   border-radius: 5px;
- 
+
   cursor: pointer;
-  
+
 }
-#createproductnavigering:hover{
+
+#createproductnavigering:hover {
   scale: 1.1;
 }
-#uppdateraKnapp{
+
+#uppdateraKnapp {
   all: unset;
   border-radius: 5px;
   color: white;
@@ -289,15 +308,11 @@ input {
   text-decoration: none;
   height: 25px;
 }
-#knappcontainer{
+
+#knappcontainer {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
   height: 88px;
 }
-
-
-
-
-
