@@ -7,12 +7,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
 import { MdStar, MdStarOutline, MdStarHalf} from 'react-icons/md'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
+import styled from 'styled-components';
 
 
 const Products = () => {
   const [productList, setProductList] = useState([]);
-  const { addToCart } = useContext(CartContext);
   const [slideIndex, setSlideIndex] = useState(0);
+  const { addToCart } = useContext(CartContext);
+  const [product, setProduct] = useState(null);
 
   const handlePrevClick = () => {
     setSlideIndex(slideIndex - 1);
@@ -22,6 +24,12 @@ const Products = () => {
     setSlideIndex(slideIndex + 1);
   };
 
+  const handleAddToCart = () => {
+    if (product.stock > 0) {
+      addToCart(product);
+      setProduct({ ...product, stock: product.stock - 1 });
+    }
+  };
 
   useEffect(() => {
     async function fetchProducts() {
@@ -72,9 +80,6 @@ const Products = () => {
 </div>
 
       
-          
-      
-
 
       <br />
 
@@ -83,20 +88,34 @@ const Products = () => {
         {productList.map((products) =>
           <li className='productListItem' key={uuid4()}>
             <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
-           <div className='topRowProducts'> <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4> </div> 
-           <div className='bottomRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> 
+           <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
+           <div className='bottomRowProducts'>  
          
-            <button onClick={() => addToCart(products)}  className='shoppingCartIcon'> 
-              <img src="../../imgs/352007_add_cart_shopping_icon.svg" alt=""  />
-            </button> 
-            <p className='priceTag'> {products.price}kr</p>
+           <Button onClick={handleAddToCart} className='cartBtn'>
+            Add to cart
+            </Button>
+            <p className='priceTag'> {products.price}:-</p>
+            </div>
+            <div className='bottomRowPrice'>
             </div>
             
+            <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
           </li>
         )}
       </ul>
     </div>
   )
 }
+const Button = styled.button`
+  color: limegreen};
+  border: 3px solid limegreen;
+  background: white;
+  font-size: 20px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  max-height: 80px;
+  width: 60%;
+  margin-left: 20px;
+`;
 
 export default Products;

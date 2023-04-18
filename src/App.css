@@ -89,6 +89,8 @@ input {
   margin: 15px;
 }
 
+/* PRODUCT LIST CARDS */
+
 .bigListImage {
   max-width: 100%;
   object-fit: contain;
@@ -123,13 +125,16 @@ input {
 }
 
 .albumTitle {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: white;
+  font-size: 16px;
 }
 
 .priceTag {
   font-size: 20px;
+  /* padding-right: 5px; */
+  color: white;
+  margin-left: auto;
+  margin-right: 25px;
 }
 
 .topRowProducts {
@@ -141,17 +146,15 @@ input {
 .bottomRowProducts {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 15px;
+  justify-items: space-evenly;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
   font-size: 25px;
   color: black;
+  border-radius: 5px;
 }
 
-.shoppingCartIcon {
-  justify-items: center;
-}
+
 
 /* SLIDESHOW PRODUCTS */
 .hotText {
