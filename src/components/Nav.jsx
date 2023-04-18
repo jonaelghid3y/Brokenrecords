@@ -9,7 +9,6 @@ const Nav = () => {
   const location = useLocation();
   const { cart } = useContext(CartContext);
 
-  // Compute cart length
   const cartLength = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (

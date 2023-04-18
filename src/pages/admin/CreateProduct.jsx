@@ -34,7 +34,7 @@ const CreateProduct = () => {
       });
       const data = await response.json();
       console.log('Success:', data)
-      navigate("/ManageProducts");
+      navigate("/admin/ManageProducts");
     } catch (error) {
       console.error('Error:', error);
     }
