@@ -4,8 +4,9 @@ import { CartContext } from '../components/CartContext';
 import uuid4 from "uuid4";
 import Cart from '../components/Cart'
 import { motion, AnimatePresence } from 'framer-motion';
-import {GrChapterNext} from 'react-icons/gr'
-import {GrChapterPrevious} from 'react-icons/gr'
+import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
+import { MdStar, MdStarOutline, MdStarHalf} from 'react-icons/md'
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 
 
 const Products = () => {
@@ -36,29 +37,43 @@ const Products = () => {
  
 
       <h2 className='hotText'>HOT RIGHT NOW</h2>
+      
       <div id='slideshowDIV'> 
-      <motion.ul
-        className="slideshow"
-        initial={{ x: 0 }}
-        animate={{ x: `-${slideIndex * 100}vw` }}
-        transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-      >
-        <ul className='slideshowUL'>
-          {productList.map((products) =>
-            <li className='productListItemSS' key={products._id}> 
-             <img className='slideShowImage' src={products.image} alt="" /> "THIS is the best album ever, nothing will ever top it!" - GQ
-             
-            </li>
-          )}
-        </ul>
-        </motion.ul>
-        <button className="ssbtn prev" onClick={handlePrevClick}>
-        <GrChapterPrevious size={40} />
-      </button>
-      <button className="ssbtn next" onClick={handleNextClick}>
-      <GrChapterNext size={40}/>
-      </button>
-      </div>
+  <div className="slideshowNav">
+    <button className="ssbtn prev" onClick={handlePrevClick}>
+      <IoIosArrowBack size={40} />
+    </button>
+    <button className="ssbtn next" onClick={handleNextClick}>
+      <IoIosArrowForward size={40} />
+    </button>
+  </div>
+  <motion.ul
+    className="slideshow"
+    initial={{ x: 0 }}
+    animate={{ x: `-${slideIndex * 100}vw` }}
+    transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+  >
+    <ul className='slideshowUL'>
+      {productList.map((products) =>
+        <li className='productListItemSS' key={products._id}> 
+          <div className='slideShowItem'>
+            <img className='slideShowImage' src={products.image} alt="" />
+            <div className='reviewText'>
+              <div className='iconContainerSS'>
+                <MdStar /><MdStar /><MdStar /><MdStarHalf /> <MdStarOutline />
+              </div>
+              "THIS is the best album ever, nothing will ever top it!" - GQ
+            </div>
+          </div>
+        </li>
+      )}
+    </ul>
+  </motion.ul>
+</div>
+
+      
+          
+      
 
 
       <br />
