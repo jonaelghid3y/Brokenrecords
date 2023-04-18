@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
 const CreateProduct = () => {
   const [title, setTitle] = useState('');
@@ -8,8 +9,10 @@ const CreateProduct = () => {
   const [price, setPrice] = useState("")
   const [stock, setStock] = useState("")
   const [image, setImage] = useState("")
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
+    e.preventDefault();
     const formData = {
       title,
       description,
@@ -31,6 +34,7 @@ const CreateProduct = () => {
       });
       const data = await response.json();
       console.log('Success:', data)
+      navigate("/ManageProducts");
     } catch (error) {
       console.error('Error:', error);
     }
@@ -48,6 +52,7 @@ const CreateProduct = () => {
         <input type="number" className='stockInput' placeholder='Stock' value={stock} onChange={e => setStock(e.target.value)}/>
         <input type="text" className='imageURLInput' placeholder='Image URL' value={image} onChange={e => setImage(e.target.value)}/>  
         <input type="submit" className='addProduct' value="Add Product"/> 
+        <Link to="/ManageProducts">&#8592; Back</Link>
       </form>
     </div>
   );

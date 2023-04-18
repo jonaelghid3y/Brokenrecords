@@ -30,7 +30,7 @@ const Products = () => {
       <h4>{products.title} </h4>
       <h5>{products.description}  {products.releaseyear}</h5>
       <p>{products.price}kr</p>
-      <Link to={`/Product/${products._id}`} productId={products._id}>Read More</Link>    
+      <Link>Read More </Link>    
        <button><img src="../../imgs/352007_add_cart_shopping_icon.svg" alt="" className='shoppingCartIcon' /></button>
       </li>
       )}
