@@ -132,7 +132,7 @@ border-radius: 3px;
 
 
 const Button = styled.button`
-  color: limegreen;
+  color: limegreen};
   border: 3px solid limegreen;
   background: white;
   margin-top: 40px;
