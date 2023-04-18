@@ -7,12 +7,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
 import { MdStar, MdStarOutline, MdStarHalf} from 'react-icons/md'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
-
+import styled from 'styled-components';
+import Product from '../components/Product';
 
 const Products = () => {
-  const [productList, setProductList] = useState([]);
-  const { addToCart } = useContext(CartContext);
   const [slideIndex, setSlideIndex] = useState(0);
+  const { addToCart } = useContext(CartContext);
+  const [products, setProducts] = useState(null);
+  const [productList, setProductList] = useState([]);
 
   const handlePrevClick = () => {
     setSlideIndex(slideIndex - 1);
@@ -22,6 +24,14 @@ const Products = () => {
     setSlideIndex(slideIndex + 1);
   };
 
+  const handleAddToCart = () => {
+    
+      addToCart(products +1);
+      setProducts({ ...products, stock: products.stock - 1 });
+    
+  };
+
+ 
 
   useEffect(() => {
     async function fetchProducts() {
@@ -31,7 +41,6 @@ const Products = () => {
     }
     fetchProducts();
   }, []);
-
   return (
     <div className='pagediv'>
  
@@ -72,31 +81,39 @@ const Products = () => {
 </div>
 
       
-          
-      
-
 
       <br />
 
-
       <ul className='productUL'>
-        {productList.map((products) =>
-          <li className='productListItem' key={uuid4()}>
-            <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
-           <div className='topRowProducts'> <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4> </div> 
-           <div className='bottomRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> 
-         
-            <button onClick={() => addToCart(products)}  className='shoppingCartIcon'> 
-              <img src="../../imgs/352007_add_cart_shopping_icon.svg" alt=""  />
-            </button> 
-            <p className='priceTag'> {products.price}kr</p>
-            </div>
-            
-          </li>
-        )}
-      </ul>
+    {productList.map((products) =>
+      <li className='productListItem' key={uuid4()}>
+        <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
+       <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
+        <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
+        <div className='bottomRowProducts'>  
+       <Button onClick={handleAddToCart} className='cartBtn'>
+        Add to cart
+        </Button>
+        <p className='priceTag'> {products.price}:-</p>
+        </div>
+      </li>
+    )}
+  </ul>
+      
     </div>
   )
 }
+const Button = styled.button`
+  color: limegreen;
+  border: 2px solid limegreen;
+  background: white;
+  font-size: 20px;
+  padding: 2px 5px;
+  border-radius: 0px;
+  max-height: 80px;
+  width: 50%;
+  margin-left: 25%;   
+  margin-bottom: 10px;
+`;
 
 export default Products;
