@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import uuid4 from 'uuid4';
 
 const Styledtd = styled.td`
 
@@ -40,6 +41,8 @@ font-size: 18px;
 `;
 
 const Cart = ({ cart }) => {
+  
+  console.log(cart)
   const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
   if (cart.length == 0) return <p>Your cart is empty</p>;
   return (
@@ -69,7 +72,7 @@ const Cart = ({ cart }) => {
 
 
         
-        <tbody>
+        <tbody key={uuid4()}>
 
           <tr>
             <Styledtd> <img src={product.image} style={{ height: "100px", width: "100px", margin: "0", padding: "0" }}></img>  </Styledtd>
