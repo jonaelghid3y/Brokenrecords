@@ -16,8 +16,15 @@ const CartContextProvider = (props) => {
     }
   };
 
+  const removeFromCart = (productId) => {
+    const updatedCart = [...cart];
+    const productIndex = updatedCart.findIndex(product => product._id === productId);
+    updatedCart.splice(productIndex, 1);
+    setCart(updatedCart);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart }}>
+    <CartContext.Provider value={{ cart, setCart, addToCart, removeFromCart }}>
       {props.children}
     </CartContext.Provider>
   );
