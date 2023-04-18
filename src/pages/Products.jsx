@@ -14,7 +14,7 @@ const Products = () => {
   const [productList, setProductList] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
   const { addToCart } = useContext(CartContext);
-  const [product, setProduct] = useState(null);
+  const [products, setProducts] = useState(null);
 
   const handlePrevClick = () => {
     setSlideIndex(slideIndex - 1);
@@ -25,10 +25,10 @@ const Products = () => {
   };
 
   const handleAddToCart = () => {
-    if (product.stock > 0) {
-      addToCart(product);
-      setProduct({ ...product, stock: product.stock - 1 });
-    }
+    
+      addToCart(products);
+      setProducts({ ...products, stock: products.stock - 1 });
+    
   };
 
   useEffect(() => {
@@ -96,8 +96,7 @@ const Products = () => {
             </Button>
             <p className='priceTag'> {products.price}:-</p>
             </div>
-            <div className='bottomRowPrice'>
-            </div>
+           
             
             <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
           </li>
@@ -114,8 +113,7 @@ const Button = styled.button`
   padding: 2px 5px;
   border-radius: 3px;
   max-height: 80px;
-  width: 60%;
-  margin-left: 20px;
+  width: 50%;
 `;
 
 export default Products;
