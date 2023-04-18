@@ -1,8 +1,7 @@
-// Cart.jsx
 import React from 'react';
 
 const Cart = ({ cart }) => {
-  const totalPrice = cart.reduce((total, product) => total + product.price, 0);
+  const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
 
   return (
     <div className='cart__container'>
@@ -12,7 +11,7 @@ const Cart = ({ cart }) => {
             <img className='cart__img' src={product.image} alt="" />
             <h4>{product.title}</h4>
             <h5>{product.description} {product.releaseyear}</h5>
-            <p>{product.price}kr</p>
+            <p>{product.price}kr x {product.quantity}</p>
           </li>
         )}
       </ul>
