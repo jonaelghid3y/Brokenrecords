@@ -6,7 +6,7 @@ const CartContextProvider = (props) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    const existingProductIndex = cart.findIndex((p) => p._id === product._id);
+    const existingProductIndex = cart.findIndex(p => p._id === product._id);
     if (existingProductIndex >= 0) {
       const updatedCart = [...cart];
       updatedCart[existingProductIndex].quantity += 1;
