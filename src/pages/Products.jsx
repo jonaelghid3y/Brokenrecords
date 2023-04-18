@@ -8,13 +8,13 @@ import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
 import { MdStar, MdStarOutline, MdStarHalf} from 'react-icons/md'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
 import styled from 'styled-components';
-
+import Product from '../components/Product';
 
 const Products = () => {
-  const [productList, setProductList] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
   const { addToCart } = useContext(CartContext);
   const [products, setProducts] = useState(null);
+  const [productList, setProductList] = useState([]);
 
   const handlePrevClick = () => {
     setSlideIndex(slideIndex - 1);
@@ -31,6 +31,8 @@ const Products = () => {
     
   };
 
+ 
+
   useEffect(() => {
     async function fetchProducts() {
       const response = await fetch("https://product-api-production-7dbf.up.railway.app/products")
@@ -39,7 +41,6 @@ const Products = () => {
     }
     fetchProducts();
   }, []);
-
   return (
     <div className='pagediv'>
  
@@ -83,37 +84,36 @@ const Products = () => {
 
       <br />
 
-
       <ul className='productUL'>
-        {productList.map((products) =>
-          <li className='productListItem' key={uuid4()}>
-            <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
-           <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
-           <div className='bottomRowProducts'>  
-         
-           <Button onClick={handleAddToCart} className='cartBtn'>
-            Add to cart
-            </Button>
-            <p className='priceTag'> {products.price}:-</p>
-            </div>
-           
-            
-            <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
-          </li>
-        )}
-      </ul>
+    {productList.map((products) =>
+      <li className='productListItem' key={uuid4()}>
+        <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
+       <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
+        <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
+        <div className='bottomRowProducts'>  
+       <Button onClick={handleAddToCart} className='cartBtn'>
+        Add to cart
+        </Button>
+        <p className='priceTag'> {products.price}:-</p>
+        </div>
+      </li>
+    )}
+  </ul>
+      
     </div>
   )
 }
 const Button = styled.button`
-  color: limegreen};
-  border: 3px solid limegreen;
+  color: limegreen;
+  border: 2px solid limegreen;
   background: white;
   font-size: 20px;
   padding: 2px 5px;
-  border-radius: 3px;
+  border-radius: 0px;
   max-height: 80px;
   width: 50%;
+  margin-left: 25%;   
+  margin-bottom: 10px;
 `;
 
 export default Products;

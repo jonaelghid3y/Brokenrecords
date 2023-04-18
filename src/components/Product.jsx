@@ -1,8 +1,10 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import Products from '../pages/Products'
 const Product = () => {
+  
+
   return (
-    <div>Product</div>
+    <div></div>
   )
 }
 

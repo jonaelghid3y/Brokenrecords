@@ -6,6 +6,9 @@ body {
 a {
   text-decoration: none;
 }
+::placeholder{
+  color: white;
+}
 
 .active {
   text-decoration: underline;
@@ -64,7 +67,7 @@ a {
   min-height: 535px;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: #333333;
+  background-color: #e6e6e6;
 }
 
 #footer {
@@ -109,30 +112,33 @@ input {
 
 .productListItem {
   width: 20%;
-  border: 1px solid black;
   border-radius: 10px;
-  background-color: #0b0b0b;
+  background-color: #7a7a7a;
   margin-top: 25px;
   overflow: hidden;
   align-self: flex-end;
+  box-shadow: -3px 5px 20px #0b0b0b;
 }
 
 
 
 .albumInfo {
-  font-size: 20px;
-  color: rgb(255, 255, 255);
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
 }
 
 .albumTitle {
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .priceTag {
-  font-size: 20px;
-  color: white;
+  font-size: 16px;
+  color:white;
   margin-left: auto;
+  margin-right: 18px;
+  margin-bottom: 10px;
 }
 
 .topRowProducts {
@@ -146,9 +152,10 @@ input {
   flex-direction: row;
   justify-items: space-evenly;
   align-items: center;
-  font-size: 25px;
+  font-size: 15px;
   color: black;
   border-radius: 5px;
+  margin-top: 10px;
 }
 
 
@@ -157,6 +164,7 @@ input {
 .hotText {
   color: white;
   text-shadow: 1px 1px 2px black, 0 0 25px rgb(208, 0, 255), 0 0 5px rgb(46, 0, 103);
+  margin-top: 50px;
 }
 .slideshowNav {
   position: absolute;
@@ -229,7 +237,7 @@ input {
 
 .reviewText{
   align-self: center;
-  margin-left: 10px;
+  /* margin-left: 5px; */
   display: inline-block;
   max-width: 20%;
   color: rgb(255, 136, 255);
@@ -252,6 +260,7 @@ input {
   max-height: 350px;
   object-fit: cover;
   margin-left: 80px;
+  box-shadow: -5px 5px 5px rgba(0,0,0,0.3);
 }
 
 .productListItemSS {
@@ -260,9 +269,6 @@ input {
   height: 360px;
   display: flex;
   flex-direction: row;
-}
-.ssbtn{
-  
 }
 
 

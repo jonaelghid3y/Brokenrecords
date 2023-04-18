@@ -89,7 +89,7 @@ const UpdateProduct = () => {
   return (
     <Styleduppdateproductsdiv>
 
-      <h1 style={{ margin: "50px", color: "white", fontSize: "60px" }}> Uppdateproduct</h1>
+      <h1 style={{ margin: "50px", color: "white", fontSize: "60px" }}> Update a Product</h1>
       <form id="form" className="formContainer" onSubmit={handleSubmit}>
         <h4>Album</h4>
         <input
