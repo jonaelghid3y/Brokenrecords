@@ -67,11 +67,6 @@ a {
   background-color: #333333;
 }
 
-#footer {
-  height: 100px;
-  border: 1px solid black;
-}
-
 #createProductDiv {
   display: flex;
   justify-content: center;

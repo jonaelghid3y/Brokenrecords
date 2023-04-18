@@ -89,7 +89,7 @@ const Title = styled.h1`
   font-size: 45px;
   font-family: 'Lexend', sans-serif;
   text-align:left;
-  color: black;
+  color: white;
 `;
 
 const ImgBackgroud = styled.div `
@@ -102,6 +102,9 @@ const ImgBackgroud = styled.div `
   margin: 30px 10px
 `;
 const Wrapper = styled.div`
+  background-image: url(../imgs/erik-mclean-QzpgqElvSiA-unsplash.jpg);
+  background-size: cover;
+  object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,7 +156,7 @@ border-radius: 3px;
 const Button = styled.button`
   color: limegreen};
   border: 3px solid limegreen;
-  background: white;
+  // background: white;
   margin-top: 40px;
   font-size: 20px;
   padding: 2px 5px;
