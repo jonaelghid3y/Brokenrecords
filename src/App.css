@@ -316,3 +316,7 @@ input {
   gap: 20px;
   height: 88px;
 }
+#carttable{
+  margin: 0;
+  padding: 0;
+}
