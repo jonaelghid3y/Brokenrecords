@@ -115,6 +115,7 @@ const PP = styled.div `
   border-bottom: 2px solid black;
   border-top: 2px solid black;
   padding: 10px 0px 10px 0px;
+  margin-top: 40px;
   
 `;
 const Quantety = styled.div `
@@ -131,7 +132,7 @@ border-radius: 3px;
 
 
 const Button = styled.button`
-  color: limegreen};
+  color: limegreen;
   border: 3px solid limegreen;
   background: white;
   margin-top: 40px;
