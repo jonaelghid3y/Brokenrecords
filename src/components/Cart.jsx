@@ -1,17 +1,19 @@
-import React, { useContext } from 'react';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../components/CartContext';
+import { AiFillPlusCircle } from 'react-icons/ai';
+import { AiFillMinusCircle } from 'react-icons/ai';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const Styledtd = styled.td`
-  border: 1px solid black;
+  border: 1px solid grey;
   text-align: left;
   padding: 8px;
 `;
 
 const Styledth = styled.th`
-  border: 1px solid black;
+  border: 1px solid grey;
   text-align: left;
   padding: 8px;
 `;
@@ -24,48 +26,47 @@ const Styledtable = styled.table`
   font-size: 18px;
 `;
 
+const Styleddeletebutton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: red;
+  padding: 5px;
+  border: 3px solid red;
+  border-radius: 5px;
+`;
+
 const Cart = ({ cart }) => {
-  const { setCart } = useContext(CartContext);
+  const { setCart, addProduct, reduceProduct,removeProduct } = useContext(CartContext);
+
+  const handleAddProduct = (productId) => {
+    addProduct(productId);
+  };
+
+  const handlereduceProduct = (productId) => {
+    reduceProduct(productId);
+  };
+
+  const handleremoveProduct =(productID)=>{
+
+    removeProduct();
+    
+  }
+  const emptyCart = () => {
+    setCart([]);
+  }
 
   const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
 
-  function addProduct(productId) {
-    const updatedCart = cart.map((product) => {
-      if (product._id === productId) {
-        return {
-          ...product,
-          quantity: product.quantity + 1
-        };
-      } else {
-        return product;
-      }
-    });
+  const updatedCartWithoutZeroQuantity = cart.filter((product) => product.quantity > 0);
 
-    setCart(updatedCart);
-  }
-  function reduceProduct(productId) {
-    const updatedCart = cart.map((product) => {
-      if (product._id === productId && product.quantity > 0) {
-        return {
-          ...product,
-          quantity: product.quantity - 1
-        };
-      } else {
-        return product;
-      }
-    });
-  
-    // Remove product from cart if quantity becomes zero
-    const updatedCartWithoutZeroQuantity = updatedCart.filter((product) => product.quantity > 0);
+  useEffect(() => {
     setCart(updatedCartWithoutZeroQuantity);
-  }
+  }, []);
 
-  function removeProduct(productId) {
-    const updatedCart = cart.filter((product) => product._id !== productId);
-    setCart(updatedCart);
-  }
 
-  if (cart.length === 0)
+
+  if (cart.length === 0) {
     return (
       <div>
         <p>Your cart is empty</p>
@@ -74,18 +75,18 @@ const Cart = ({ cart }) => {
         </Link>
       </div>
     );
+  }
 
   return (
     <div className="cart__container">
       <Styledtable>
-        <thead style={{ backgroundColor: "rgb(38, 38, 38)", color: "white" }}>
+        <thead>
           <tr>
             <Styledth>Album</Styledth>
             <Styledth></Styledth>
             <Styledth>Price</Styledth>
             <Styledth>Stock</Styledth>
             <Styledth>Quantity</Styledth>
-            <Styledth>Add</Styledth>
             <Styledth>Delete</Styledth>
           </tr>
         </thead>
@@ -102,21 +103,26 @@ const Cart = ({ cart }) => {
               </Styledtd>
               <Styledtd>{product.price}kr</Styledtd>
               <Styledtd>{product.stock}</Styledtd>
-              <Styledtd>{product.quantity}</Styledtd>
+             
               <Styledtd>
-                <button onClick={()=>reduceProduct(product._id)}>-</button>
-                <button onClick={() => addProduct(product._id)}>+</button>
+                <div id="knappcontainer">
+                <button onClick={()=>handlereduceProduct(product._id)}><AiFillMinusCircle/></button>
+                <p>{product.quantity}</p>
+                <button onClick={() => handleAddProduct(product._id)}><AiFillPlusCircle/></button>
+                </div>
               </Styledtd>
               <Styledtd>
-                <button onClick={() => removeProduct(product._id)}>Remove</button>
+                <Styleddeletebutton onClick={() => handleremoveProduct(product._id)}>Remove<FaTrashAlt/></Styleddeletebutton>
               </Styledtd>
             </tr>
           ))}
         </tbody>
       </Styledtable>
+      <Styleddeletebutton onClick={emptyCart}> Empty Cart</Styleddeletebutton>
       <p>Total price: {totalPrice}kr</p>
     </div>
   );
-};
+  }
+
 
 export default Cart;

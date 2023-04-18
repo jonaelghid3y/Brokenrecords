@@ -22,9 +22,46 @@ const CartContextProvider = (props) => {
     updatedCart.splice(productIndex, 1);
     setCart(updatedCart);
   };
+  const removeProduct = (productId) => {
+    const updatedCart = cart.filter((product) => product._id !== productId);
+    setCart(updatedCart);
+  }
+
+  function addProduct(productId) {
+    const updatedCart = cart.map((product) => {
+      if (product._id === productId) {
+        return {
+          ...product,
+          quantity: product.quantity + 1
+        };
+      } else {
+        return product;
+      }
+    });
+    
+
+    setCart(updatedCart);
+  }
+  function reduceProduct(productId) {
+    const updatedCart = cart.map((product) => {
+      if (product._id === productId && product.quantity > 0) {
+        return {
+          ...product,
+          quantity: product.quantity - 1
+        };
+      } else {
+        return product;
+      }
+    });
+  
+   
+    const updatedCartWithoutZeroQuantity = updatedCart.filter((product) => product.quantity > 0);
+  
+    setCart(updatedCartWithoutZeroQuantity);
+  }
 
   return (
-    <CartContext.Provider value={{ cart, setCart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, setCart,addProduct, addToCart,removeProduct, reduceProduct, removeFromCart }}>
       {props.children}
     </CartContext.Provider>
   );
