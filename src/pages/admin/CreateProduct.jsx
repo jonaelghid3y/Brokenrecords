@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom'
 
 const CreateProduct = () => {
   const [title, setTitle] = useState('');
@@ -34,6 +34,7 @@ const CreateProduct = () => {
       });
       const data = await response.json();
       console.log('Success:', data)
+      navigate("/ManageProducts");
     } catch (error) {
       console.error('Error:', error);
     }
