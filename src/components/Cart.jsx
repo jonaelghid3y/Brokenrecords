@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 const Styledtd = styled.td`
 
    border: 1px solid black;
@@ -81,7 +82,7 @@ const Cart = ({ cart }) => {
 
 
 
-          <tbody>
+          <tbody key = {product['_id']}>
 
             <tr>
               <Styledtd> <img src={product.image} style={{ height: "100px", width: "100px", margin: "0", padding: "0" }}></img>  </Styledtd>
