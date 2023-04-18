@@ -7,6 +7,7 @@ const Product = () => {
   const { id } = useParams();
   const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
+  const [alertMessage, setAlertMessage] = useState('');
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -22,6 +23,9 @@ const Product = () => {
     if (product.stock > 0) {
       addToCart(product);
       setProduct({ ...product, stock: product.stock - 1 });
+      if (product.stock <= 10) {
+        setAlertMessage(`Only ${product.stock} left in stock!`);
+      }
     }
   };
 
@@ -57,6 +61,16 @@ const Product = () => {
             <h4>{product.stock} in stock</h4>
           </Quantety>
         </PP>
+        {product.stock <= 10 && (
+          <Alert stock={product.stock}>
+            There are only {product.stock} left in stock!
+          </Alert>
+          )}
+          {product.stock === 0 && (
+            <Alert stock={product.stock}>
+              OPS! This product is out of stock.
+            </Alert>
+          )}
         <Button onClick={handleAddToCart}>
           Add to cart
         </Button>
@@ -65,6 +79,11 @@ const Product = () => {
   );
 };
 
+const Alert = styled.div`
+  margin-top: 10px;
+  padding: 10px;
+  background-color: ${props => props.stock === 0 ? 'red' : 'yellow'};
+`;
 
 const Title = styled.h1`
   font-size: 45px;
