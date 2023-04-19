@@ -11,7 +11,7 @@
   "dependencies": {
     "@fontsource/bebas-neue": "^4.5.9",
     "@fontsource/league-spartan": "^4.5.13",
-    "framer-motion": "^10.12.2",
+    "framer-motion": "^10.12.4",
     "icons": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

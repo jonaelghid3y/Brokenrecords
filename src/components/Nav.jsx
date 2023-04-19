@@ -10,6 +10,7 @@ import { AiFillMinusCircle } from 'react-icons/ai';
 import { FaTrashAlt } from 'react-icons/fa';
 import "@fontsource/bebas-neue";
 import { color } from 'framer-motion';
+import { motion } from "framer-motion"
 
 
 const Nav = () => {
@@ -56,7 +57,12 @@ const Nav = () => {
         <div id="logdiv1">
 
         <h1 >BR</h1> 
-        <img id="loggabild"  src="../imgs/6613381_disc_dj_music_turntable_vinyl_icon.png"/> 
+        <motion.img 
+
+whileHover={{ rotate: 720, transition: { duration: 3 } }}
+        
+        id="loggabild"  src="../imgs/6613381_disc_dj_music_turntable_vinyl_icon.png"></motion.img>
+       
         <h1>KEN</h1> <br/>
 
 
