@@ -171,7 +171,7 @@ a {
   overflow: hidden;
   align-self: flex-start;
   margin-top: 40px;
-
+text-align: center;
   /* box-shadow: -3px 5px 20px #0b0b0b; */
 }
 
@@ -260,7 +260,6 @@ a {
   padding: 10px;
   background-color: #333;
   color: #fff;
-
 }
 
 .ssbtn:hover:before {
