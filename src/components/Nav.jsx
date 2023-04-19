@@ -49,6 +49,7 @@ const Nav = () => {
     setIsCartOpen(false); // Set isCartOpen to false on hover leave
   };
 
+
   const cartLength = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -58,6 +59,7 @@ const Nav = () => {
 
         <h1 >BR</h1> 
         <motion.img 
+        
 
 whileHover={{ rotate: 720, transition: { duration: 3 } }}
         
@@ -86,88 +88,98 @@ whileHover={{ rotate: 720, transition: { duration: 3 } }}
       </div>
      
     
-      
       <div id="icondiv">
-      
-      <Link
-        id="carticon"
-        to="/Checkout"
-      >
-        <button id="cartbutton" style={{marginRight: "10px", color:"white"}}>
+  <div id="cartbutton" style={{ marginRight: "10px", color: "white" }}>
+    <div
+      onMouseEnter={handleCartHover}
+      onMouseLeave={handleCartLeave}
+      style={{ position: "relative" }}
+    >
+      <Link to="/Checkout" style={{ color: "white" }}>
+        <BsCart4 size={30} className="icons" />
+      </Link>
+      {isCartOpen && (
         <div
-        id="cartbutton"
-        onMouseEnter={handleCartHover}
-        onMouseLeave={handleCartLeave}
-        style={{ position: 'relative' }} // Add relative positioning to parent container
-      >
-        <BsCart4 size={30} className='icons' />
-        {isCartOpen && (
-          <div id="carthoverdiv"  style={{ opacity: isCartOpen ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
+          id="carthoverdiv"
+          style={{
+            opacity: isCartOpen ? 1 : 0,
+            transition: "opacity 0.3s ease-in-out",
+          }}
+        >
+          {cart.length === 0 ? (
+            <h1 style={{color:"black"}}>Your cart is empty.</h1>
+          ) : (
+            <>
+              <h1 style={{color: "black"}}>CART</h1>
+              <table style={{ color: "black" }}>
+             
+                <thead></thead>
+                <tbody>
+                  {cart.map((Product) => (
+                    <tr key={Product._id}>
+                      <td>
+                        <img src={Product.image} style={{ height: "50px" }} />
+                      </td>
+                      <td>
+                        <h5>{Product.title}</h5>
+                        <h6> {Product.description}</h6>
+                      </td>
+                      <td>
+                        <h5>Stock:{Product.stock}</h5>
+                        {Product.price}$
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => handlereduceProduct(Product._id)}
+                        >
+                          <AiFillMinusCircle style={{ marginRight: "5px" }} />
+                        </button>
+                        {Product.quantity}
+                        <button
+                          onClick={() => handleAddProduct(Product._id)}
+                        >
+                          <AiFillPlusCircle style={{ marginLeft: "5px" }} />
+                        </button>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => handleremoveProduct(Product._id)}
+                        >
+                          <FaTrashAlt />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <h4>Total price: {totalPrice}$</h4>
+              <Link id="checkoutknapp" to={"/Checkout"}>
+                till checkout
+              </Link>
+              <button className="DeleteButton" onClick={emptyCart}>
+                Empty cart
+              </button>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+
+    <span id="cartcount" style={{ marginRight: "10px" }}>
+      {cartLength}
+    </span>
+  </div>
+
+  <Link
+    className="icons"
+    style={{ color: "white" }}
+    to="/admin/Manageproducts"
+  >
+    <RiUserSettingsLine size={30} />
+  </Link>
+</div>
 
 
-
-            <table style={{color: "black"}}>
-              <thead>
-                {/* Table header content */}
-              </thead>
-              <tbody>
-                {cart.map(Product => (
-                  <tr key={Product._id}>
-                    <td >
-                      <img src={Product.image} style={{ height: "50px" }} />
-                    </td>
-                    <td >
-                      <h5>{Product.title}</h5>
-                      <h6> {Product.description}</h6>
-                    </td>
-                    <td >
-                      <h5>Stock:{Product.stock}</h5>{Product.price}$
-                    </td>
-                    <td >
-                      <button onClick={() => handlereduceProduct(Product._id)}>
-                        <AiFillMinusCircle style={{marginRight: '5px'}} />
-                      </button>
-                      {Product.quantity}
-                      <button onClick={() => handleAddProduct(Product._id)}>
-                        <AiFillPlusCircle style={{marginLeft: '5px',}}/>
-                      </button>
-                    </td>
-                    <td >
-                      <button onClick={() => handleremoveProduct(Product._id)}>
-                        <FaTrashAlt />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            <h4>Total price: {totalPrice}$</h4>
-            <Link  id="checkoutknapp"to={'/Checkout'}> till checkout</Link>
-            <button className="DeleteButton" onClick={emptyCart}>Empty cart</button>
-
-          </div>
-        )}
-      </div>
-          
-          <span id="cartcount" style={{marginRight: "10px"}}>{cartLength}</span>
-        </button>
-       
-
-      </Link>
-
-      <Link className='icons' style={{color: "white"}}
-        to="/admin/Manageproducts"
-        
-          
-      > 
-        < RiUserSettingsLine  size={30} 
-         />
-      </Link>
-      
-
-      </div>
-      
 
     </nav>
   );
