@@ -6,7 +6,8 @@ body {
 a {
   text-decoration: none;
 }
-::placeholder{
+
+::placeholder {
   color: white;
 }
 
@@ -24,7 +25,9 @@ a {
 
 #headerdiv {
   border: 1px solid black;
-  height: 100px;
+  height: 200px;
+  
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,6 +37,7 @@ a {
 #nav {
   display: flex;
   align-items: center;
+  
   gap: 40px;
 }
 
@@ -130,7 +134,7 @@ input {
 
 .priceTag {
   font-size: 16px;
-  color:white;
+  color: white;
   margin-left: auto;
   margin-right: 18px;
   margin-bottom: 10px;
@@ -161,6 +165,7 @@ input {
   text-shadow: 1px 1px 2px black, 0 0 25px rgb(208, 0, 255), 0 0 5px rgb(46, 0, 103);
   margin-top: 50px;
 }
+
 .slideshowNav {
   position: absolute;
   top: 47%;
@@ -181,16 +186,19 @@ input {
   height: 40px;
   align-self: center;
 }
-.ssbtn{
+
+.ssbtn {
   color: white;
   padding: 10px;
   background-color: #333;
   color: #fff;
-  
+
 }
+
 .ssbtn:hover:before {
   opacity: 0.9;
 }
+
 .ssbtn:before {
   content: '';
   position: absolute;
@@ -203,7 +211,8 @@ input {
   z-index: -1;
   transition: opacity 0.3s ease-in-out;
 }
-.ssbtn:hover{
+
+.ssbtn:hover {
   color: rgb(221, 95, 116);
 }
 
@@ -221,16 +230,16 @@ input {
   display: flex;
   flex-direction: row;
   /* max-width: 40%; */
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
-.iconContainerSS{
+.iconContainerSS {
   padding-left: 25%;
   display: flex;
   align-items: center;
 }
 
-.reviewText{
+.reviewText {
   align-self: center;
   /* margin-left: 5px; */
   display: inline-block;
@@ -255,7 +264,7 @@ input {
   max-height: 350px;
   object-fit: cover;
   margin-left: 80px;
-  box-shadow: -5px 5px 5px rgba(0,0,0,0.3);
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .productListItemSS {
@@ -351,31 +360,8 @@ input {
   cursor: pointer;
 }
 
-.DeleteButton:hover {
-  background-color: #4a4e52;
-}
-.DeleteButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 60px;
-  text-align: center;
 
- 
-  background-color: #921616;
-  color: #fff;
-  border: none;
- 
-  margin-top: 10px;
-  cursor: pointer;
-}
 
-.DeleteButton:hover {
-  background-color: #4a4e52;
-}
-
-#carticon {}
 
 
 #createproductnavigering {
@@ -417,7 +403,7 @@ input {
   font-weight: bold;
   text-decoration: none;
   height: 25px;
-  
+
 }
 
 #knappcontainer {
@@ -427,7 +413,119 @@ input {
   gap: 20px;
   height: 88px;
 }
-#carttable{
+
+#carttable {
   margin: 0;
   padding: 0;
 }
+
+#carthoverdiv {
+
+  position: absolute;
+  width: 500px;
+  top: 100%;
+  
+  left: 50;
+  background: #fff ;
+  padding: 16px ;
+  border-radius: 4px;
+  box-Shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  z-Index: 9999;
+  padding-top: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  transition: 2s;
+}
+.DeleteButton:hover {
+  background-color: #4a4e52;
+}
+
+.DeleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 80px;
+  text-align: center;
+  border-radius: 4px;
+
+
+  background-color: #921616;
+  color: #fff;
+  border: none;
+
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.DeleteButton:hover {
+  background-color: #4a4e52;
+}
+#carthoverdiv table {
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: 1px solid lightgrey;
+  
+}
+#checkoutknapp{
+  all: unset;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  background-color: #0b7449;
+  text-align: center;
+  padding: 0;
+  padding: 5px 5px;
+  font-weight: bold;
+  text-decoration: none;
+  height: 25px;
+  
+}
+
+
+#carthoverdiv th {
+  /* CSS for table header content */
+}
+
+#carthoverdiv td {
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid lightgrey;
+}
+#carthoverdiv tr:hover{
+  background-color: lightgray;
+}
+
+
+#logga{
+  margin-left: -700px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+  width: 250px;
+  height: 100px;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#logdiv1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#loggabild{
+  background-color: rgb(241, 198, 6);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+
+
+

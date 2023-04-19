@@ -24,12 +24,11 @@ const Products = () => {
     setSlideIndex(slideIndex + 1);
   };
 
-  const handleAddToCart = () => {
-    
-      addToCart(products +1);
-      setProducts({ ...products, stock: products.stock - 1 });
-    
+  const handleAddToCart = (productId) => {
+    const productToAdd = productList.find(product => product._id === productId);
+    addToCart(productToAdd);
   };
+  
 
  
 
@@ -91,7 +90,7 @@ const Products = () => {
        <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
         <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
         <div className='bottomRowProducts'>  
-       <Button onClick={handleAddToCart} className='cartBtn'>
+       <Button onClick={() => handleAddToCart(products._id)} className='cartBtn'>
         Add to cart
         </Button>
         <p className='priceTag'> {products.price}:-</p>
