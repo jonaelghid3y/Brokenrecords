@@ -19,10 +19,10 @@ const Footer = () => {
           </h1>
         </div>
         <div>
-          <h3>
-            Costumer service
-          </h3>
           <CustomerService>
+            <h3>
+              Costumer service
+            </h3>
             <p>Contact us</p>
             <p>Order status</p>
             <p>Privacy policy & Cookies</p>
@@ -78,10 +78,10 @@ const FooterContent = styled.div`
 
 const CustomerService = styled.ul`
   display: flex;
+  flex-direction: column;
 
   & > * {
-    margin: 20px;
-    margin-top:10px;
+    margin-top: 5px;
     text-align: left;
   }
   &:hover {
