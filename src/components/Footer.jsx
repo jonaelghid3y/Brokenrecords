@@ -5,9 +5,9 @@ import {AiOutlineTwitter} from 'react-icons/ai'
 import {AiFillFacebook} from 'react-icons/ai'
 import {RiSpotifyFill} from 'react-icons/ri'
 import {TbTrademark} from 'react-icons/tb'
-import {FaCcMastercard} from 'react-icons/fa'
-import { color } from 'framer-motion'
-
+import {SiMastercard} from 'react-icons/si'
+import {SiKlarna} from 'react-icons/si';
+import {SiPaypal} from 'react-icons/si'
 
 const Footer = () => {
   return (
@@ -19,15 +19,25 @@ const Footer = () => {
           </h1>
         </div>
         <div>
-          <h3>
-            Costumer service
-          </h3>
           <CustomerService>
+            <h3>
+              Costumer service
+            </h3>
             <p>Contact us</p>
             <p>Order status</p>
             <p>Privacy policy & Cookies</p>
             <p>Return & QA</p>
           </CustomerService>
+        </div>
+        <div>
+        <h3>
+          Pay with
+        </h3>
+          <PaymentContainer>
+            <SiMastercard color='white' size={25}/>
+            <SiKlarna color='white' size={25}/>
+            <SiPaypal color='white' size={25}/>
+          </PaymentContainer>
         </div>
         <div>
           <div className='socialHeadline'>
@@ -43,7 +53,6 @@ const Footer = () => {
           </SocialLogos>
         </div>
       </FooterContent>   
-
     </FooterTop >
 
   )
@@ -61,7 +70,7 @@ const FooterTop = styled.div`
 const FooterContent = styled.div`
   padding:30px;
   width: 2400px;
-  height: 200px;
+  height: 180px;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -69,10 +78,10 @@ const FooterContent = styled.div`
 
 const CustomerService = styled.ul`
   display: flex;
+  flex-direction: column;
 
   & > * {
-    margin: 20px;
-    margin-top:10px;
+    margin-top: 5px;
     text-align: left;
   }
   &:hover {
@@ -111,6 +120,16 @@ display: flex;
   fill: limegreen;
 }
 
+`;
+
+const PaymentContainer = styled.div`
+display: flex;
+
+& > * {
+  margin: 20px;
+  margin-top:10px;
+  text-align: left;
+}
 `;
 
 

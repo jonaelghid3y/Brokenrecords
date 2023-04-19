@@ -29,9 +29,11 @@ const Products = () => {
     }
   };
 
-  const handleAddToCart = () => {
-      addToCart(products);
+  const handleAddToCart = (productId) => {
+    const productToAdd = productList.find(product => product._id === productId);
+    addToCart(productToAdd);
   };
+  
 
  
 
@@ -93,8 +95,10 @@ const Products = () => {
        <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
         <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
         <div className='bottomRowProducts'>  
-       <Button onClick={handleAddToCart} className='cartBtn'>
        <TbVinyl size={30} className='vinylIcon'/> Add to cart 
+
+       <Button onClick={() => handleAddToCart(products._id)} className='cartBtn'>
+        Add to cart
         </Button>
         <p className='priceTag'> {products.price}:-</p>
         </div>

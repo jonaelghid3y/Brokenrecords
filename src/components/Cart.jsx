@@ -47,7 +47,7 @@ const Cart = ({ cart }) => {
     reduceProduct(productId);
   };
 
-  const handleremoveProduct =(productID)=>{
+  const handleremoveProduct =(productId)=>{
 
     removeProduct();
     
