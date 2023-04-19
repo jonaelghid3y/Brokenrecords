@@ -95,10 +95,9 @@ const Products = () => {
        <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
         <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
         <div className='bottomRowProducts'>  
-       <TbVinyl size={30} className='vinylIcon'/> Add to cart 
-
+       
        <Button onClick={() => handleAddToCart(products._id)} className='cartBtn'>
-        Add to cart
+       <TbVinyl size={30} className='vinylIcon'/> Add to cart 
         </Button>
         <p className='priceTag'> {products.price}:-</p>
         </div>
