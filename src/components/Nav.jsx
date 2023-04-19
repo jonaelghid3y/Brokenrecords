@@ -1,18 +1,23 @@
 // Nav.jsx
-import React, { useContext,useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MdManageAccounts } from 'react-icons/md';
-import { AiOutlineShopping } from 'react-icons/ai';
+
+import { BsCart4 } from 'react-icons/bs';
+import { RiUserSettingsLine } from 'react-icons/ri';
 import { CartContext } from '../components/CartContext';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { FaTrashAlt } from 'react-icons/fa';
+import "@fontsource/bebas-neue";
+import { color } from 'framer-motion';
 
 
 const Nav = () => {
   const location = useLocation();
-  const { cart,setCart, addProduct, reduceProduct,removeProduct  } = useContext(CartContext);
-  
+  const { cart, setCart, addProduct, reduceProduct, removeProduct } = useContext(CartContext);
+
+  const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+
   const handleAddProduct = (productId) => {
     addProduct(productId);
   };
@@ -21,18 +26,18 @@ const Nav = () => {
     reduceProduct(productId);
   };
 
-  const handleremoveProduct =(productId)=>{
+  const handleremoveProduct = (productId) => {
 
     removeProduct(productId);
 
 
-    
+
   };
   const emptyCart = () => {
     setCart([]);
   }
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const [isCartOpen, setIsCartOpen] = useState(false); // State to track if cart dropdown is open
 
   const handleCartHover = () => {
@@ -47,77 +52,117 @@ const Nav = () => {
 
   return (
     <nav id="nav">
-      <Link
+      <div id="logga">
+        <div id="logdiv1">
+
+        <h1 >BR</h1> 
+        <img id="loggabild"  src="../imgs/6613381_disc_dj_music_turntable_vinyl_icon.png"/> 
+        <h1>KEN</h1> <br/>
+
+
+        </div>
+        <h1>RECORDS</h1>
+        
+
+      </div>
+      <div id="navbar">
+      <Link className="navbarlänk"
         to="/"
-        className={`länkar ${location.pathname === '/' ? 'active' : ''}`}
+       
       >
         Products
+       
+      
       </Link>
-      <Link
-        to="/admin/Manageproducts"
-        className={`länkar ${location.pathname === '/admin/Manageproducts' ? 'active' : ''
-          }`}
-      >
-        <MdManageAccounts size={40} />
-      </Link>
+      
+      <p className="navbarlänk">Giftcards </p>
+        <p className="navbarlänk">About </p>
+      </div>
+     
+    
+      
+      <div id="icondiv">
+      
       <Link
         id="carticon"
         to="/Checkout"
       >
-        <button id="cartbutton">
-          <AiOutlineShopping size={40} />
-          <span id="cartcount">{cartLength}</span>
-        </button>
-      </Link>
-      <div
-  id="cartbutton"
-  onMouseEnter={handleCartHover}
-  onMouseLeave={handleCartLeave}
-  style={{ position: 'relative' }} // Add relative positioning to parent container
->
-  Cart
-  {isCartOpen && (
-    <div
-      style={{
-        position: 'absolute', // Position the dropdown absolutely
-        width: '600px',
-        top: '100%', // Position it below the cart button
-        right: 0, // Align it to the right of the button
-        background: '#fff', // Add desired background color
-        padding: '16px', // Add desired padding
-        borderRadius: '4px', // Add desired border radius
-        boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.1)', // Add desired box shadow
-        zIndex: 9999 // Add desired z-index
-      }}
-    >
-      {/* Render cart items in table format */}
-      
-      <table style={{ width: '100%' }}>
-        <thead>
-         
-        </thead>
-        <tbody>
-          {cart.map(Product => (
-            <tr key={Product._id}>
-              <td>
-                <img src={Product.image} style={{ height: "50px" }} />
-              </td>
-              <td>{Product.title}<br/>{Product.description}</td>
-              
-              <td> Stock: {Product.stock} st<br/>{Product.price}$</td>
-              <td><button onClick={()=>handlereduceProduct(Product._id)}><AiFillMinusCircle/></button> {Product.quantity} <button onClick={()=>handleAddProduct(Product._id)}><AiFillPlusCircle/></button></td>
-              <td><button  onClick={()=>handleremoveProduct(Product._id)}><FaTrashAlt/></button></td>
-              
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button  className="DeleteButton" onClick={emptyCart}>Remove</button>
-    </div>
-  )}
-</div>
+        <button id="cartbutton" style={{marginRight: "10px", color:"white"}}>
+        <div
+        id="cartbutton"
+        onMouseEnter={handleCartHover}
+        onMouseLeave={handleCartLeave}
+        style={{ position: 'relative' }} // Add relative positioning to parent container
+      >
+        <BsCart4 size={30} className='icons' />
+        {isCartOpen && (
+          <div id="carthoverdiv"  style={{ opacity: isCartOpen ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
 
+
+
+            <table style={{color: "black"}}>
+              <thead>
+                {/* Table header content */}
+              </thead>
+              <tbody>
+                {cart.map(Product => (
+                  <tr key={Product._id}>
+                    <td >
+                      <img src={Product.image} style={{ height: "50px" }} />
+                    </td>
+                    <td >
+                      <h5>{Product.title}</h5>
+                      <h6> {Product.description}</h6>
+                    </td>
+                    <td >
+                      <h5>Stock:{Product.stock}</h5>{Product.price}$
+                    </td>
+                    <td >
+                      <button onClick={() => handlereduceProduct(Product._id)}>
+                        <AiFillMinusCircle style={{marginRight: '5px'}} />
+                      </button>
+                      {Product.quantity}
+                      <button onClick={() => handleAddProduct(Product._id)}>
+                        <AiFillPlusCircle style={{marginLeft: '5px',}}/>
+                      </button>
+                    </td>
+                    <td >
+                      <button onClick={() => handleremoveProduct(Product._id)}>
+                        <FaTrashAlt />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <h4>Total price: {totalPrice}$</h4>
+            <Link  id="checkoutknapp"to={'/Checkout'}> till checkout</Link>
+            <button className="DeleteButton" onClick={emptyCart}>Empty cart</button>
+
+          </div>
+        )}
+      </div>
+          
+          <span id="cartcount" style={{marginRight: "10px"}}>{cartLength}</span>
+        </button>
+       
+
+      </Link>
+
+      <Link className='icons' style={{color: "white"}}
+        to="/admin/Manageproducts"
+        
+          
+      > 
+        < RiUserSettingsLine  size={30} 
+         />
+      </Link>
       
+
+      </div>
+      
+
     </nav>
   );
 };

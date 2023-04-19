@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Manageproductspagediv = styled.div`
 
 font-family: Arial, Helvetica, sans-serif;
-border: 1px solid black;
+
 min-height: 535px;
 display: flex;
 justify-content: center;
