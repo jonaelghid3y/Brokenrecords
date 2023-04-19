@@ -30,9 +30,9 @@ const Footer = () => {
           </CustomerService>
         </div>
         <div>
-        <h3>
+        <ExtraSpace>
           Pay with
-        </h3>
+        </ExtraSpace>
           <PaymentContainer>
             <SiMastercard color='white' size={25}/>
             <SiKlarna color='white' size={25}/>
@@ -41,9 +41,9 @@ const Footer = () => {
         </div>
         <div>
           <div className='socialHeadline'>
-            <h3>
+            <ExtraSpace>
               Find us at
-            </h3>
+            </ExtraSpace>
           </div>
           <SocialLogos>
             <AiOutlineInstagram size={25}/>
@@ -131,7 +131,8 @@ display: flex;
   text-align: left;
 }
 `;
-
-
+const ExtraSpace = styled.h3`
+  margin-left: 20px;
+`;
 
 export default Footer
