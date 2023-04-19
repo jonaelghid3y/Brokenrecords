@@ -185,7 +185,7 @@ const ManageProducts = () => {
               <Styledtd>{products.releaseyear}</Styledtd>
               <Styledtd>{products.price}</Styledtd>
               <Styledtd>{products.stock}</Styledtd>
-              <Styledtd id="knappcontainer"> <Link id="uppdateraKnapp" to={"/Updateproduct/" + products['_id']}>Ändra</Link><Styleddeletebutton id="raderaKnapp" onClick={() => { deletePun(products['_id']) }}>Ta bort</Styleddeletebutton></Styledtd>
+              <Styledtd id="knappcontainer"> <Link id="uppdateraKnapp" to={"/admin/Updateproduct/" + products['_id']}>Ändra</Link><Styleddeletebutton id="raderaKnapp" onClick={() => { deletePun(products['_id']) }}>Ta bort</Styleddeletebutton></Styledtd>
 
             </Styledtr>
 

@@ -1,5 +1,17 @@
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Lexend', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+::placeholder{
+  color: white;
+}
+
+.active {
+  text-decoration: underline;
 }
 
 #root {
@@ -11,7 +23,7 @@ body {
 }
 
 #headerdiv {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 100px;
   display: flex;
   align-items: center;
@@ -24,18 +36,19 @@ body {
   align-items: center;
   gap: 40px;
 }
-#cartbutton{
-  
+
+#cartbutton {
+
   display: flex;
   align-items: center;
 
 }
-#cartcount{
+
+#cartcount {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  margin-right: 20px;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -54,12 +67,7 @@ body {
   min-height: 535px;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: #333333;
-}
-
-#footer {
-  height: 100px;
-  border: 1px solid black;
+  background-color: #e6e6e6;
 }
 
 #createProductDiv {
@@ -79,6 +87,8 @@ input {
   margin: 15px;
 }
 
+/* PRODUCT LIST CARDS */
+
 .bigListImage {
   max-width: 100%;
   object-fit: contain;
@@ -97,66 +107,163 @@ input {
 
 .productListItem {
   width: 20%;
-  border: 1px solid black;
   border-radius: 10px;
-  background-color: #0b0b0b;
+  background-color: #7a7a7a;
   margin-top: 25px;
   overflow: hidden;
   align-self: flex-end;
-  
+  box-shadow: -3px 5px 20px #0b0b0b;
 }
 
 
 
-.albumInfo{
-  font-size: 20px;
+.albumInfo {
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
 }
-.albumTitle{
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
+
+.albumTitle {
+  color: white;
+  font-size: 18px;
 }
-.priceTag{
-  font-size: 20px;
+
+.priceTag {
+  font-size: 16px;
+  color:white;
+  margin-left: auto;
+  margin-right: 18px;
+  margin-bottom: 10px;
 }
-.topRowProducts{
+
+.topRowProducts {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-.bottomRowProducts{
+
+.bottomRowProducts {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 15px;
+  justify-items: space-evenly;
   align-items: center;
-  background-color: rgb(255, 255, 255);
-  font-size: 25px;
+  font-size: 15px;
   color: black;
-}
-.shoppingCartIcon{
-  justify-items: center;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
+
+
 /* SLIDESHOW PRODUCTS */
+.hotText {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px rgb(208, 0, 255), 0 0 5px rgb(46, 0, 103);
+  margin-top: 50px;
+}
+.slideshowNav {
+  position: absolute;
+  top: 47%;
+  transform: translateY(-90%);
+  z-index: 1;
+  width: 100%;
+  max-width: 110%;
+}
+
+.slideshowNav .ssbtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  align-self: center;
+}
+.ssbtn{
+  color: white;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  
+}
+.ssbtn:hover:before {
+  opacity: 0.9;
+}
+.ssbtn:before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  bottom: -100px;
+  left: -20px;
+  right: -20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.6;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+}
+.ssbtn:hover{
+  color: rgb(221, 95, 116);
+}
+
+.slideshowNav .prev {
+  position: absolute;
+  left: 0;
+}
+
+.slideshowNav .next {
+  position: absolute;
+  right: 0;
+}
 
 .slideshowUL {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  /* max-width: 40%; */
+  margin: 0 auto; 
+}
+
+.iconContainerSS{
+  padding-left: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.reviewText{
+  align-self: center;
+  /* margin-left: 5px; */
+  display: inline-block;
+  max-width: 20%;
+  color: rgb(255, 136, 255);
+}
+
+#slideshowDIV {
+  max-width: 45%;
   overflow: hidden;
-  background-color: #6e6e6e;
+  max-height: 500px;
+  position: relative;
 }
-.slideshowDIV{
-  max-width: 100%;
-  overflow: hidden;
+
+.slideShowItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.slideShowImage{
-  max-height: 300px;
+
+.slideShowImage {
+  max-height: 350px;
+  object-fit: cover;
+  margin-left: 80px;
+  box-shadow: -5px 5px 5px rgba(0,0,0,0.3);
 }
+
 .productListItemSS {
   min-width: 100vw;
-  
+  max-width: 100vw;
+  height: 360px;
+  display: flex;
+  flex-direction: row;
 }
 
 
@@ -178,7 +285,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
- background-size: contain;
+  background-size: contain;
 }
 
 .cart__img {
@@ -186,16 +293,17 @@ input {
 }
 
 .formContainer {
-  
+
   background-color: #272424;
   color: #fff;
   padding: 20px;
   border-radius: 5px;
   width: 700px;
- display: flex;
- align-items: center;
- flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -243,15 +351,34 @@ input {
   cursor: pointer;
 }
 
-.updateButton:hover {
+.DeleteButton:hover {
   background-color: #4a4e52;
 }
-#carticon{
+.DeleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 60px;
+  text-align: center;
+
  
+  background-color: #921616;
+  color: #fff;
+  border: none;
+ 
+  margin-top: 10px;
+  cursor: pointer;
 }
 
+.DeleteButton:hover {
+  background-color: #4a4e52;
+}
 
-#createproductnavigering{
+#carticon {}
+
+
+#createproductnavigering {
   width: 200px;
   height: 40px;
   display: flex;
@@ -261,7 +388,7 @@ input {
   text-decoration: none;
   color: white;
   margin-top: 15px;
-  
+
   width: 120px;
   padding: 10px;
   padding-left: 20px;
@@ -269,14 +396,16 @@ input {
   color: #fff;
   border: none;
   border-radius: 5px;
- 
+
   cursor: pointer;
-  
+
 }
-#createproductnavigering:hover{
+
+#createproductnavigering:hover {
   scale: 1.1;
 }
-#uppdateraKnapp{
+
+#uppdateraKnapp {
   all: unset;
   border-radius: 5px;
   color: white;
@@ -288,16 +417,17 @@ input {
   font-weight: bold;
   text-decoration: none;
   height: 25px;
+  
 }
-#knappcontainer{
+
+#knappcontainer {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
   height: 88px;
 }
-
-
-
-
-
+#carttable{
+  margin: 0;
+  padding: 0;
+}
