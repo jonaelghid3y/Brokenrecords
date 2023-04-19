@@ -51,7 +51,7 @@ const Products = () => {
 
       <h2 className='hotText'>HOT RIGHT NOW</h2>
       
-      <div id='slideshowDIV'> 
+<div id='slideshowDIV'> 
   <div className="slideshowNav">
     <button className="ssbtn prev" onClick={handlePrevClick}>
       <IoIosArrowBack size={40} />
@@ -84,9 +84,18 @@ const Products = () => {
   </motion.ul>
 </div>
 
-      
+<br />
 
-      <br />
+<h2 className='hotText'>NEW RELEASES</h2>
+<ul id='newReleaseSlide'>
+{productList.map((products) =>
+      <li className='newReleaseItem' key={uuid4()}>
+        <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
+      </li>
+    )}
+</ul>
+
+<br />
 
       <ul className='productUL'>
     {productList.map((products) =>
@@ -94,8 +103,7 @@ const Products = () => {
         <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
        <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
         <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
-        <div className='bottomRowProducts'>  
-       
+        <div className='bottomRowProducts'>   
        <Button onClick={() => handleAddToCart(products._id)} className='cartBtn'>
        <TbVinyl size={30} className='vinylIcon'/> Add to cart 
         </Button>
@@ -104,8 +112,7 @@ const Products = () => {
       </li>
     )}
   </ul>
-      
-    </div>
+  </div>
   )
 }
 const Button = styled.button`
@@ -120,6 +127,12 @@ const Button = styled.button`
   margin-bottom: 10px;
   display:flex;
   align-items: center;
+
+  &:hover {
+    color: rgb(241, 198, 6);;
+    border: 2px solid rgb(241, 198, 6);;
+  }
+
 `;
 
 export default Products;
