@@ -20,25 +20,75 @@ a {
   flex-direction: column;
   min-height: 100dvh;
   width: 100%;
-  text-align: center;
 }
 
 #headerdiv {
-  border: 1px solid black;
-  height: 200px;
-  
-  
+
+  height: 150px;
+
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 50px;
+  background-color: black;
+}
+
+.icons:hover {
+  scale: 1.1;
 }
 
 #nav {
   display: flex;
-  align-items: center;
-  
+  align-items: end;
+  justify-content: space-between;
+
   gap: 40px;
+
+  width: 100%;
+  color: white;
+}
+
+#icondiv {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  right: 150px;
+  color: white
+}
+
+#navbar {
+  margin-right: 600px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 1s;
+
+}
+
+.navbarlänk {
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+
+}
+
+.navbarlänk:hover {
+  scale: 1.1;
+  color: #4f4c4c;
+}
+
+#fakenav {
+  display: flex;
+  flex-direction: row;
 }
 
 #cartbutton {
@@ -56,8 +106,9 @@ a {
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background-color: rgb(224, 103, 11);
-  color: white;
+  font-weight: bolder;
+  background-color: rgb(241, 198, 6);
+  color: rgb(14, 13, 13);
 }
 
 .pagediv {
@@ -91,10 +142,6 @@ a {
   justify-items: center;
 }
 
-input {
-  margin: 15px;
-}
-
 /* PRODUCT LIST CARDS */
 
 .bigListImage {
@@ -123,7 +170,7 @@ input {
   box-shadow: -3px 5px 20px #0b0b0b;
 }
 
-.vinylIcon{
+.vinylIcon {
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -284,9 +331,6 @@ input {
   flex-direction: row;
 }
 
-
-
-
 /* CART */
 .cart__container {
   display: flex;
@@ -294,10 +338,9 @@ input {
   flex-direction: column;
   padding-left: 1rem;
   padding-right: 1rem;
-  gap: 4rem;
+  padding-bottom: 2rem;
+  gap: 2rem;
 }
-
-.cart__ul {}
 
 .cart__li {
   display: flex;
@@ -308,19 +351,85 @@ input {
 
 .cart__img {
   max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.formContainer {
-
-  background-color: #272424;
-  color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  width: 700px;
+.cart__empty {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
+
+/* CHECKOUT */
+.form__container {
+  background-color: #f2f2f2;
+  padding: 1rem;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.form__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form__col-25 {
+  flex: 25%;
+}
+
+.form__col-50 {
+  flex: 50%;
+}
+
+.form__col-75 {
+  flex: 75%;
+}
+
+.form__col-25,
+.form__col-50,
+.form__col-75 {
+  padding-inline-end: 5px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  background-color: #04AA6D;
+  border-radius: 3px;
+  width: 100%;
+  color: #fff;
+  transition: .3s;
+}
+
+.btn:hover {
+  background-color: #45a049;
+  transition: .3s;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+@media (max-width: 800px) {
+  .form__row {
+    flex-direction: column-reverse;
+  }
+}
+
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -333,13 +442,21 @@ h4 {
 }
 
 input {
-  background-color: #6f6e6e;
-  width: 50%;
   padding: 10px;
-  margin-bottom: 10px;
   border: none;
   border-bottom: 2px solid #0b0b0b;
   outline: none;
+}
+
+.formContainer {
+  background-color: #272424;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .imagePreview {
@@ -369,6 +486,30 @@ input {
   cursor: pointer;
 }
 
+.DeleteButton:hover {
+  background-color: #4a4e52;
+}
+
+.DeleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 60px;
+  text-align: center;
+
+
+  background-color: #921616;
+  color: #fff;
+  border: none;
+
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.DeleteButton:hover {
+  background-color: #4a4e52;
+}
 
 
 
@@ -423,22 +564,18 @@ input {
   height: 88px;
 }
 
-#carttable {
-  margin: 0;
-  padding: 0;
-}
-
 #carthoverdiv {
 
   position: absolute;
   width: 500px;
   top: 100%;
-  
-  left: 50;
-  background: #fff ;
-  padding: 16px ;
+  right: -205px;
+
+  background: #fff;
+  padding: 16px;
   border-radius: 4px;
-  box-Shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+
   z-Index: 9999;
   padding-top: 50px;
 
@@ -449,6 +586,7 @@ input {
   gap: 20px;
   transition: 2s;
 }
+
 .DeleteButton:hover {
   background-color: #4a4e52;
 }
@@ -458,7 +596,7 @@ input {
   align-items: center;
   justify-content: center;
   height: 30px;
-  width: 80px;
+  width: 85px;
   text-align: center;
   border-radius: 4px;
 
@@ -474,13 +612,15 @@ input {
 .DeleteButton:hover {
   background-color: #4a4e52;
 }
+
 #carthoverdiv table {
   width: 100%;
   border-collapse: collapse;
   border-bottom: 1px solid lightgrey;
-  
+
 }
-#checkoutknapp{
+
+#checkoutknapp {
   all: unset;
   border-radius: 5px;
   color: white;
@@ -492,7 +632,7 @@ input {
   font-weight: bold;
   text-decoration: none;
   height: 25px;
-  
+
 }
 
 
@@ -505,13 +645,14 @@ input {
   vertical-align: middle;
   border-bottom: 1px solid lightgrey;
 }
-#carthoverdiv tr:hover{
+
+#carthoverdiv tr:hover {
   background-color: lightgray;
 }
 
 
-#logga{
-  margin-left: -700px;
+#logga {
+
 
   display: flex;
   justify-content: center;
@@ -520,21 +661,21 @@ input {
   flex-direction: column;
   width: 250px;
   height: 100px;
-  font-size: 30px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: 40px;
+  font-family: "Bebas Neue";
 }
-#logdiv1{
+
+#logdiv1 {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-#loggabild{
+
+#loggabild {
   background-color: rgb(241, 198, 6);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
-
-
-
-

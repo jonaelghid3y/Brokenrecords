@@ -4,14 +4,14 @@ import styled from 'styled-components';
 
 const Styleduppdateproductsdiv = styled.div`
 
-  border: 1px solid black;
+ 
   min-height: 535px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-bottom: 100px;
-  border: 1px solid black;
+
   min-height: 535px;
   background-image: url(../imgs/notebook-earphones-near-vinyl-record.jpg);
   background-size: contain;
