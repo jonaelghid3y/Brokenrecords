@@ -414,7 +414,7 @@ a {
 
 /* CHECKOUT */
 .form__container {
-  background-color: #f2f2f2;
+  background-color: #ffffff;
   padding: 1rem;
   border: 1px solid lightgrey;
   border-radius: 3px;
@@ -501,7 +501,7 @@ input {
 
 .formContainer {
   background-color: #272424;
-  color: #fff;
+  color: #ffffff;
   padding: 20px;
   border-radius: 5px;
   width: 700px;
