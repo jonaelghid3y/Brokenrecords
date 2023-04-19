@@ -57,11 +57,10 @@ a {
   right: 150px;
   color: white
 }
-#navbar{
-  margin-right: 620px;
+
 
 #navbar {
-  margin-right: 600px;
+  margin-right: 620px;
   display: flex;
   flex-direction: row;
   gap: 20px;
