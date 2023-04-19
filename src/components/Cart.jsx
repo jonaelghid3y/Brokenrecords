@@ -122,57 +122,8 @@ const Cart = ({ cart }) => {
         <Styleddeletebutton onClick={emptyCart}>Empty Cart</Styleddeletebutton>
 
 
-        <div class="form__container">
-          <div class="form__row">
-            <div class="form__col-75">
-              <form>
-                <div class="form__row">
-                  <div class="form__col-50">
-                    <label for="fname">Full Name</label>
-                    <input type="text" name="firstname" placeholder="" />
-                    <label for="email">Email</label>
-                    <input type="text" name="email" placeholder="" />
-                    <label for="adr">Address</label>
-                    <input type="text" name="address" placeholder="" />
-                    <label for="city">City</label>
-                    <input type="text" name="city" placeholder="" />
-
-                    <div class="form__row">
-                      <div class="form__col-50">
-                        <label for="zip">Zip</label>
-                        <input type="text" id="zip" name="zip" placeholder="" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form__col-50">
-                    <label for="cname">Name on Card</label>
-                    <input type="text" id="cname" name="cardname" placeholder="" />
-                    <label for="ccnum">Credit card number</label>
-                    <input type="text" id="ccnum" name="cardnumber" placeholder="" />
-                    <label for="expmonth">Exp. Month</label>
-                    <input type="text" id="expmonth" name="expmonth" placeholder="" />
-
-                    <div class="form__row">
-                      <div class="form__col-50">
-                        <label for="expyear">Exp. Year</label>
-                        <input type="text" id="expyear" name="expyear" placeholder="" />
-                      </div>
-                      <div class="form__col-50">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" placeholder="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <label>
-                  <input type="checkbox" checked="checked" name="sameadr" /> Shipping address same as billing
-                </label>
-                <input type="submit" value="Confirm payment" class="form__btn btn" />
-              </form>
-            </div>
-          </div>
-        </div>
+        
+          
       </div>
     </>
   );
