@@ -1,12 +1,15 @@
 // Nav.jsx
 import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MdManageAccounts } from 'react-icons/md';
-import { AiOutlineShopping } from 'react-icons/ai';
+
+import { BsCart4 } from 'react-icons/bs';
+import { RiUserSettingsLine } from 'react-icons/ri';
 import { CartContext } from '../components/CartContext';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { FaTrashAlt } from 'react-icons/fa';
+import "@fontsource/bebas-neue";
+import { color } from 'framer-motion';
 
 
 const Nav = () => {
@@ -52,7 +55,7 @@ const Nav = () => {
       <div id="logga">
         <div id="logdiv1">
 
-        <h1>BR</h1> 
+        <h1 >BR</h1> 
         <img id="loggabild"  src="../imgs/6613381_disc_dj_music_turntable_vinyl_icon.png"/> 
         <h1>KEN</h1> <br/>
 
@@ -62,37 +65,42 @@ const Nav = () => {
         
 
       </div>
-      <Link
+      <div id="navbar">
+      <Link className="navbarlänk"
         to="/"
-        className={`länkar ${location.pathname === '/' ? 'active' : ''}`}
+       
       >
         Products
+       
+      
       </Link>
-      <Link
-        to="/admin/Manageproducts"
-        className={`länkar ${location.pathname === '/admin/Manageproducts' ? 'active' : ''
-          }`}
-      >
-        <MdManageAccounts size={40} color='black' />
-      </Link>
+      
+      <p className="navbarlänk">Giftcards </p>
+        <p className="navbarlänk">About </p>
+      </div>
+     
+    
+      
+      <div id="icondiv">
+      
       <Link
         id="carticon"
         to="/Checkout"
       >
-        <button id="cartbutton">
+        <button id="cartbutton" style={{marginRight: "10px", color:"white"}}>
         <div
         id="cartbutton"
         onMouseEnter={handleCartHover}
         onMouseLeave={handleCartLeave}
         style={{ position: 'relative' }} // Add relative positioning to parent container
       >
-        <AiOutlineShopping size={40} />
+        <BsCart4 size={30} className='icons' />
         {isCartOpen && (
           <div id="carthoverdiv"  style={{ opacity: isCartOpen ? 1 : 0, transition: 'opacity 0.3s ease-in-out' }}>
 
 
 
-            <table>
+            <table style={{color: "black"}}>
               <thead>
                 {/* Table header content */}
               </thead>
@@ -136,11 +144,23 @@ const Nav = () => {
         )}
       </div>
           
-          <span id="cartcount">{cartLength}</span>
+          <span id="cartcount" style={{marginRight: "10px"}}>{cartLength}</span>
         </button>
        
 
       </Link>
+
+      <Link className='icons' style={{color: "white"}}
+        to="/admin/Manageproducts"
+        
+          
+      > 
+        < RiUserSettingsLine  size={30} 
+         />
+      </Link>
+      
+
+      </div>
       
 
     </nav>
