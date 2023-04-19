@@ -4,93 +4,115 @@ import {AiOutlineInstagram} from 'react-icons/ai'
 import {AiOutlineTwitter} from 'react-icons/ai'
 import {AiFillFacebook} from 'react-icons/ai'
 import {RiSpotifyFill} from 'react-icons/ri'
+import {TbTrademark} from 'react-icons/tb'
+import {FaCcMastercard} from 'react-icons/fa'
+import { color } from 'framer-motion'
 
 
 const Footer = () => {
   return (
-    <FooterContainer>
-      <SocialBox>
-        <FooterTitle>
-          Follow us:
-          <Instabox>
-            <AiOutlineInstagram size={25} color='white'/>
-            </Instabox>
-              <TwitterBox>
-                <AiOutlineTwitter size={25} color='white'/>
-              </TwitterBox>
-            <FaceBox>
-              <AiFillFacebook size={25} color='white'/>
-            </FaceBox>
-              <SpotBox>
-              <RiSpotifyFill size={25} color='white'/>
-            </SpotBox>
-          </FooterTitle>
-        </SocialBox>
-      <FooterContainer2>
-        <div>
-          About us
+    <FooterTop>
+      <FooterContent className="footerContent">
+        <div className="logoContainer">
+          <h1>
+          <TbTrademark size={20} color='white'/> BROKEN RECORDS
+          </h1>
         </div>
         <div>
-          Help! 
+          <h3>
+            Costumer service
+          </h3>
+          <CustomerService>
+            <p>Contact us</p>
+            <p>Order status</p>
+            <p>Privacy policy & Cookies</p>
+            <p>Return & QA</p>
+          </CustomerService>
         </div>
         <div>
-          location
+          <div className='socialHeadline'>
+            <h3>
+              Find us at
+            </h3>
+          </div>
+          <SocialLogos>
+            <AiOutlineInstagram size={25}/>
+            <AiOutlineTwitter size={25} />
+            <AiFillFacebook size={25}/>
+            <RiSpotifyFill size={25}/>
+          </SocialLogos>
         </div>
-      </FooterContainer2>
-    </FooterContainer>
+      </FooterContent>   
+
+    </FooterTop >
 
   )
 }
 
-const FooterContainer = styled.div`
+const FooterTop = styled.div`
   background: black;
   display: flex;
   justify-content: center;
   aline-itenms: center;
-  flex-direction: column;
+  flex-direction: row;
+  background-color: black;
 `;
 
-const SocialBox = styled.div`
-  display: flex;
-  width: 500px;
-  
-`;
-
-const FooterTitle = styled.h3`
+const FooterContent = styled.div`
+  padding:30px;
+  width: 2400px;
+  height: 200px;
   color: white;
   display: flex;
-  font-family: 'Lexend', sans-serif;
-  margin: 40px 0px 25px 40px;
+  justify-content: space-between;
 `;
 
-
-const Instabox = styled.div`
-  margin: 30px 30px 0px -95px;
-  padding: 10px;
-
-`;
-const TwitterBox = styled.div`
-  margin: 30px 30px 0px 30px;
-  padding: 10px;
-
-`;
-const FaceBox = styled.div`
-  margin: 30px 30px 0px 30px;
-  padding: 10px;
-
-`;
-const SpotBox = styled.div`
-  margin: 30px 30px 0px 30px;
-  padding: 10px;
-`;
-
-const FooterContainer2 = styled.div`
-  color: white;
+const CustomerService = styled.ul`
   display: flex;
-  margin: 30px;
-  padding: 10px;
-  border-left: 2px solid white;
+
+  & > * {
+    margin: 20px;
+    margin-top:10px;
+    text-align: left;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 `;
+
+
+const SocialLogos = styled.div`
+display: flex;
+
+& > * {
+  margin: 20px;
+  margin-top:10px;
+  text-align: left;
+}
+&:hover {
+  cursor: pointer;
+}
+& > * {
+  margin-right: 10px;
+}
+& > svg:nth-of-type(1):hover {
+  fill: pink;
+}
+
+& > svg:nth-of-type(2):hover {
+  fill: #00acee;
+}
+
+& > svg:nth-of-type(3):hover {
+  fill: #3b5998;
+}
+
+& > svg:nth-of-type(4):hover {
+  fill: limegreen;
+}
+
+`;
+
 
 
 export default Footer

@@ -7,11 +7,15 @@ import {SiKlarna} from 'react-icons/si';
 import {AiFillCreditCard} from 'react-icons/ai';
 
 const Product = () => {
+  // retrieve id parameter from URL
   const { id } = useParams();
+  // retrieve addToCart function from CartContext
   const { addToCart } = useContext(CartContext);
+  // create state variable for product and alert message
   const [product, setProduct] = useState(null);
   const [alertMessage, setAlertMessage] = useState('');
 
+  // fetch product data from API when component mounts
   useEffect(() => {
     const fetchProduct = async () => {
       const response = await fetch(`https://product-api-production-7dbf.up.railway.app/products/${id}`);
@@ -22,6 +26,7 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
+  // update product stock and alert message when user adds product to cart
   const handleAddToCart = () => {
     if (product.stock > 0) {
       addToCart(product);
@@ -32,6 +37,7 @@ const Product = () => {
     }
   };
 
+  // display loading message if product data is not yet retrieved
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -46,55 +52,43 @@ const Product = () => {
       <div>
         <TextBox>
           <div>
-            <h2>
-              {product.description}
-            </h2>
-            <Title>
-              {product.title}
-            </Title>
+            <h2>{product.description}</h2>
+            <Title>{product.title}</Title>
           </div>
           <div>
-            <h3> {product.releaseyear}
-            </h3>
+            <h3>{product.releaseyear}</h3>
           </div>
-            <Button onClick={handleAddToCart}>
-              Add to cart
-            </Button>
+          <Button onClick={handleAddToCart}>Add to cart</Button>
           <PP>
             <PriceBox>
-            <h4>{product.price} :-</h4>
+              <h4>{product.price} :-</h4>
             </PriceBox>
             <Quantety>
               <h4>{product.stock} in stock</h4>
             </Quantety>
           </PP>
+          {/* display alert message if product stock is low or out of stock */}
           {product.stock <= 10 && (
             <Alert stock={product.stock}>
               There are only {product.stock} left in stock!
             </Alert>
-            )}
-            {product.stock === 0 && (
-              <Alert stock={product.stock}>
-                OPS! This product is out of stock.
-              </Alert>
-            )}
-          
+          )}
+          {product.stock === 0 && (
+            <Alert stock={product.stock}>
+              OPS! This product is out of stock.
+            </Alert>
+          )}
           <Icons>
-            <div>
-              <FaShippingFast size={25}/>
-            </div>
-            <Space>
-              <SiKlarna color='pink' size={25}/>
-            </Space>
-            <Space>
-               <AiFillCreditCard size={25}/>
-            </Space>
+            <div><FaShippingFast size={25} /></div>
+            <Space><SiKlarna color='pink' size={25} /></Space>
+            <Space><AiFillCreditCard size={25} /></Space>
           </Icons>
         </TextBox>
       </div>    
     </Wrapper>
   );
 };
+
 
 const Alert = styled.div`
   margin-top: 10px;
