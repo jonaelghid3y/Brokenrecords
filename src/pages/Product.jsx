@@ -52,8 +52,8 @@ const Product = () => {
       <div>
         <TextBox>
           <div>
-            <h2>{product.description}</h2>
             <Title>{product.title}</Title>
+            <h2>{product.description}</h2>
           </div>
           <div>
             <h3>{product.releaseyear}</h3>
