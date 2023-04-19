@@ -228,10 +228,11 @@ text-align: center;
 /* SLIDESHOW PRODUCTS */
 .hotText {
   color: white;
-  text-shadow: 1px 1px 1px black, 1px 1px 15px rgb(241, 198, 6);
+  text-shadow: 1px 1px 6px black, 1px 1px 15px rgb(241, 198, 6);
   margin-top: 50px;
   margin-bottom: 50px;
-  font-size: 30px;
+  font-size: 50px;
+  font-family: "Bebas Neue";
 }
 
 .slideshowNav {
@@ -301,7 +302,7 @@ text-align: center;
 }
 
 .iconContainerSS {
-  padding-left: 25%;
+  padding-left: 10%;
   display: flex;
   align-items: center;
 }
@@ -311,7 +312,8 @@ text-align: center;
   /* margin-left: 5px; */
   display: inline-block;
   max-width: 20%;
-  color: rgb(255, 136, 255);
+  color: rgb(241, 198, 6);
+  text-shadow: 1px 1px 2px black;
 }
 
 #slideshowDIV {

@@ -73,7 +73,7 @@ const Products = () => {
             <img className='slideShowImage' src={products.image} alt="" />
             <div className='reviewText'>
               <div className='iconContainerSS'>
-                <MdStar /><MdStar /><MdStar /><MdStarHalf /> <MdStarOutline />
+                <MdStar  /><MdStar /><MdStar /><MdStarHalf /> <MdStarOutline />
               </div>
               "THIS is the best album ever, nothing will ever top it!" - GQ
             </div>
