@@ -109,7 +109,7 @@ const ManageProducts = () => {
 
 const Manageproductspagediv = styled.div`
   font-family: 'Lexend', sans-serif;
-  min-height: 535px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,6 +178,9 @@ const Styleddeletebutton = styled.button`
   padding: 5px 5px;
   font-weight: bold;
   height: 35px;
+  &:active {
+    transform: scale(0.9);
+  }
 `;
 
 export default ManageProducts

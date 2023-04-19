@@ -60,7 +60,7 @@ a {
 
 
 #navbar {
-  margin-right: 40.5%;
+  margin-right: 39%;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -416,49 +416,7 @@ text-align: center;
   align-items: center;
 }
 
-/* CHECKOUT */
-.form__container {
-  background-color: #f2f2f2;
-  padding: 1rem;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
 
-.form__row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.form__col-25 {
-  flex: 25%;
-}
-
-.form__col-50 {
-  flex: 50%;
-}
-
-.form__col-75 {
-  flex: 75%;
-}
-
-.form__col-25,
-.form__col-50,
-.form__col-75 {
-  padding-inline-end: 5px;
-}
-
-input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-label {
-  margin-bottom: 5px;
-  display: block;
-}
 
 .btn {
   cursor: pointer;
@@ -504,7 +462,7 @@ input {
 }
 
 .formContainer {
-  background-color: #272424;
+  background-color: #343030;
   color: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -609,6 +567,9 @@ input {
   text-decoration: none;
   height: 25px;
 
+}
+#uppdateraKnapp:active {
+  transform: scale(0.9);
 }
 
 #knappcontainer {
@@ -733,4 +694,53 @@ input {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+}
+#checkoutdiv{
+  background-image: url(../imgs/adrian-korte-5gn2soeAc40-unsplash.jpg);
+ 
+background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction:  column;
+  width: 1540px;
+}
+#formcontainer{
+  background-color: rgba(255,255,255,.5);
+  backdrop-filter: blur(10px);
+  box-shadow: -20px 20px 10px rgba(0,0,0,0.3);
+  margin: 0 auto;
+  background-color: white;
+  display: flex;
+ padding-top: 50px;
+justify-content: center;
+  flex-direction: row;
+  width: 1400px;
+}
+.form-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+
+  width: 500px;
+}
+#formcontainer{
+  background-color: rgba(255,255,255,.5);
+  backdrop-filter: blur(10px);
+
+min-height: 1000px;
+}
+#checkoutform{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.inputcheckout{
+ border: 2px solid rgb(131, 131, 131);
+ font-size: 20px;
 }

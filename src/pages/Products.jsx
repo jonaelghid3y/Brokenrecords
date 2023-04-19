@@ -11,6 +11,7 @@ import {TbVinyl } from 'react-icons/tb'
 import styled from 'styled-components';
 import Product from '../components/Product';
 
+
 const Products = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const { addToCart } = useContext(CartContext);
@@ -131,6 +132,10 @@ const Button = styled.button`
   &:hover {
     color: rgb(241, 198, 6);;
     border: 2px solid rgb(241, 198, 6);;
+    
+  }
+  &:active {
+    transform: scale(0.9);
   }
 
 `;

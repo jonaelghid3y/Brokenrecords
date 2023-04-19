@@ -5,22 +5,26 @@ import { CartContext } from '../components/CartContext';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { FaTrashAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Styledtd = styled.td`
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
   text-align: left;
   padding: 8px;
 `;
 
 const Styledth = styled.th`
-  border: 1px solid grey;
+  border-bottom: 1px solid grey;
   text-align: center;
   padding: 8px;
 `;
 
 const Styledtable = styled.table`
+  margin-top: 100px;
   border-collapse: collapse;
-  width: 80%;
+  border-bottom: 1px solid grey;
+
+  width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
 `;
@@ -29,10 +33,19 @@ const Styleddeletebutton = styled.button`
   display: flex;
   align-items: center;
   gap: 10px;
-  color: red;
+  color: white;
+
+  background-color: #921616;
+  margin: 0 auto;
   padding: 5px;
-  border: 2px solid red;
+ 
   border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+
+  &:active {
+    transform: scale(0.9);
+  }
+ 
 `;
 
 const Cart = ({ cart }) => {
@@ -46,9 +59,9 @@ const Cart = ({ cart }) => {
     reduceProduct(productId);
   };
 
-  const handleremoveProduct =(productId)=>{
+  const handleremoveProduct = (productId)=>{
 
-    removeProduct();
+    removeProduct(productId);
 
   }
   const emptyCart = () => {
@@ -68,7 +81,7 @@ const Cart = ({ cart }) => {
   if (cart.length === 0) {
     return (
       <div className="cart__empty">
-        <p>Your cart is empty</p>
+        <h1 style={{borderBottom: "1px solid black", marginTop: "50px" , marginBottom: "50px"}}>Your cart is empty!</h1>
         <Link to="/" className="backLink">
           &#8592; Back
         </Link>
@@ -78,7 +91,8 @@ const Cart = ({ cart }) => {
 
   return (
     <>
-      <div className="cart__container">
+      <div style={{borderBottom: "1px solid black", width:"100%"}} className="cart__container">
+        <h1 >Cart</h1>
         <Styledtable>
           <thead>
             <tr>
@@ -106,9 +120,9 @@ const Cart = ({ cart }) => {
 
                 <Styledtd>
                   <div id="knappcontainer">
-                    <button onClick={() => handlereduceProduct(product._id)}><AiFillMinusCircle /></button>
+                    <motion.button whileTap={{ scale: 0.9 }} onClick={() => handlereduceProduct(product._id)}><AiFillMinusCircle /></motion.button>
                     <p>{product.quantity}</p>
-                    <button onClick={() => handleAddProduct(product._id)}><AiFillPlusCircle /></button>
+                    <motion.button whileTap={{ scale: 0.9 }} onClick={() => handleAddProduct(product._id)}><AiFillPlusCircle /></motion.button>
                   </div>
                 </Styledtd>
                 <Styledtd>
@@ -119,7 +133,7 @@ const Cart = ({ cart }) => {
           </tbody>
         </Styledtable>
         <h4>Total price: ${totalPrice}</h4>
-        <Styleddeletebutton onClick={emptyCart}>Empty Cart</Styleddeletebutton>
+        <Styleddeletebutton style={{marginBottom:"100px"}} onClick={emptyCart}>Empty Cart</Styleddeletebutton>
 
 
         
