@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
 import { MdStar, MdStarOutline, MdStarHalf} from 'react-icons/md'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
+import {TbVinyl } from 'react-icons/tb'
 import styled from 'styled-components';
 import Product from '../components/Product';
 
@@ -21,14 +22,15 @@ const Products = () => {
   };
 
   const handleNextClick = () => {
-    setSlideIndex(slideIndex + 1);
+    if (slideIndex >= productList.length - 1) {
+      setSlideIndex(0);
+    } else {
+      setSlideIndex(slideIndex + 1);
+    }
   };
 
   const handleAddToCart = () => {
-    
-      addToCart(products +1);
-      setProducts({ ...products, stock: products.stock - 1 });
-    
+      addToCart(products);
   };
 
  
@@ -60,7 +62,7 @@ const Products = () => {
     className="slideshow"
     initial={{ x: 0 }}
     animate={{ x: `-${slideIndex * 100}vw` }}
-    transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+    transition={{ type: 'spring', stiffness: 100, damping: 30 }}
   >
     <ul className='slideshowUL'>
       {productList.map((products) =>
@@ -92,7 +94,7 @@ const Products = () => {
         <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
         <div className='bottomRowProducts'>  
        <Button onClick={handleAddToCart} className='cartBtn'>
-        Add to cart
+       <TbVinyl size={30} className='vinylIcon'/> Add to cart 
         </Button>
         <p className='priceTag'> {products.price}:-</p>
         </div>
@@ -104,16 +106,17 @@ const Products = () => {
   )
 }
 const Button = styled.button`
-  color: limegreen;
-  border: 2px solid limegreen;
-  background: white;
+  color: white;
+  border: 2px solid white;
+  background: black;
   font-size: 20px;
-  padding: 2px 5px;
-  border-radius: 0px;
+  border-radius: 5px;
   max-height: 80px;
   width: 50%;
   margin-left: 25%;   
   margin-bottom: 10px;
+  display:flex;
+  align-items: center;
 `;
 
 export default Products;

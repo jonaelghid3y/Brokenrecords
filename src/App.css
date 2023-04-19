@@ -67,7 +67,11 @@ a {
   min-height: 535px;
   padding-left: 1rem;
   padding-right: 1rem;
-  background-color: #e6e6e6;
+  /* background-color: #e6e6e6; */
+  background-image: url(..\imgs\adrian-korte-5gn2soeAc40-unsplash.jpg);
+  background-position: center -800px;
+  /* background-size: 110%;
+  background-repeat: no-repeat; */
 }
 
 #createProductDiv {
@@ -115,6 +119,11 @@ input {
   box-shadow: -3px 5px 20px #0b0b0b;
 }
 
+.vinylIcon{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 
 
 .albumInfo {
@@ -132,7 +141,7 @@ input {
   font-size: 16px;
   color:white;
   margin-left: auto;
-  margin-right: 18px;
+  margin-right: 25px;
   margin-bottom: 10px;
 }
 
