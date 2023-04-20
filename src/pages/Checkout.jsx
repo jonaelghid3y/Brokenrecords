@@ -121,8 +121,6 @@ const Checkout = () => {
           </form>
         </div>
       </div>
-    
-
     </Styledcheckoutdiv>
   )
 }
