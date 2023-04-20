@@ -5,15 +5,6 @@ import Cart from './Cart';
 import { CartContext } from './CartContext';
 import styled from 'styled-components';
 
-const StyledHeaderdiv = styled.div`
-height: 150px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 50px;
-background-color: black;
-`;
-
 
 
 const Header = () => {
@@ -27,5 +18,16 @@ const Header = () => {
     </StyledHeaderdiv>
   )
 }
+
+const StyledHeaderdiv = styled.div`
+height: 150px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 50px;
+background-color: black;
+`;
+
+
 
 export default Header;

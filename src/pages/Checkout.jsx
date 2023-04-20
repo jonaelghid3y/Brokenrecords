@@ -8,19 +8,6 @@ import {AiFillCreditCard} from 'react-icons/ai';
 import {SiPaypal} from 'react-icons/si'
 import styled from 'styled-components';
 
-const Styledcheckoutdiv = styled.button`
-background-image: url(../imgs/adrian-korte-5gn2soeAc40-unsplash.jpg);
-background-repeat: no-repeat;
-background-size: cover;
-min-height: 75vh;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction:  column;
-width: 1540px;
-`;
-
-
 const Checkout = () => {
   const { cart, setCart } = useContext(CartContext); // Get cart and setCart from CartContext
   const [updatecart, setupdateCart] = useState([]);
@@ -124,5 +111,16 @@ const Checkout = () => {
     </Styledcheckoutdiv>
   )
 }
+const Styledcheckoutdiv = styled.button`
+background-image: url(../imgs/adrian-korte-5gn2soeAc40-unsplash.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+min-height: 75vh;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction:  column;
+width: 1540px;
+`;
 
 export default Checkout;

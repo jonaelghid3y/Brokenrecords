@@ -102,7 +102,6 @@ const UpdateProduct = () => {
 
   return (
     <Styleduppdateproductsdiv>
-
       <h1 style={{ margin: "50px", color: "white", fontSize: "60px" }}> Update a Product</h1>
       <Styledform  id="form" className="formContainer" onSubmit={handleSubmit}>
         <h4>Album</h4>
@@ -174,15 +173,7 @@ const UpdateProduct = () => {
         <Link to="/admin/Manageproducts" className="backLink">
           &#8592; Back
         </Link>
-
       </Styledform>
-
-
-
-
-
-
-
     </Styleduppdateproductsdiv>
   )
 }
