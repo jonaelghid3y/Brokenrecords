@@ -7,8 +7,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
 import { MdStar, MdStarOutline, MdStarHalf} from 'react-icons/md'
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io'
+import {TbVinyl } from 'react-icons/tb'
 import styled from 'styled-components';
 import Product from '../components/Product';
+
 
 const Products = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -21,15 +23,18 @@ const Products = () => {
   };
 
   const handleNextClick = () => {
-    setSlideIndex(slideIndex + 1);
+    if (slideIndex >= productList.length - 1) {
+      setSlideIndex(0);
+    } else {
+      setSlideIndex(slideIndex + 1);
+    }
   };
 
-  const handleAddToCart = () => {
-    
-      addToCart(products +1);
-      setProducts({ ...products, stock: products.stock - 1 });
-    
-    };
+  const handleAddToCart = (productId) => {
+    const productToAdd = productList.find(product => product._id === productId);
+    addToCart(productToAdd);
+  };
+  
 
  
 
@@ -47,7 +52,7 @@ const Products = () => {
 
       <h2 className='hotText'>HOT RIGHT NOW</h2>
       
-      <div id='slideshowDIV'> 
+<div id='slideshowDIV'> 
   <div className="slideshowNav">
     <button className="ssbtn prev" onClick={handlePrevClick}>
       <IoIosArrowBack size={40} />
@@ -60,7 +65,7 @@ const Products = () => {
     className="slideshow"
     initial={{ x: 0 }}
     animate={{ x: `-${slideIndex * 100}vw` }}
-    transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+    transition={{ type: 'spring', stiffness: 100, damping: 30 }}
   >
     <ul className='slideshowUL'>
       {productList.map((products) =>
@@ -69,7 +74,7 @@ const Products = () => {
             <img className='slideShowImage' src={products.image} alt="" />
             <div className='reviewText'>
               <div className='iconContainerSS'>
-                <MdStar /><MdStar /><MdStar /><MdStarHalf /> <MdStarOutline />
+                <MdStar  /><MdStar /><MdStar /><MdStarHalf /> <MdStarOutline />
               </div>
               "THIS is the best album ever, nothing will ever top it!" - GQ
             </div>
@@ -80,9 +85,18 @@ const Products = () => {
   </motion.ul>
 </div>
 
-      
+<br />
 
-      <br />
+<h2 className='hotText'>NEW RELEASES</h2>
+<ul id='newReleaseSlide'>
+{productList.map((products) =>
+      <li className='newReleaseItem' key={uuid4()}>
+        <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
+      </li>
+    )}
+</ul>
+
+<br />
 
       <ul className='productUL'>
     {productList.map((products) =>
@@ -90,30 +104,40 @@ const Products = () => {
         <Link to={"/Product/" + products._id}><img className='bigListImage' src={products.image} alt="" /></Link> 
        <div className='topRowProducts'> <h5 className='albumTitle'>  {products.title}</h5> </div> 
         <h4 className='albumInfo'> {products.description}  {"("}{products.releaseyear}{")"}</h4>
-        <div className='bottomRowProducts'>  
-       <Button onClick={handleAddToCart} className='cartBtn'>
-        Add to cart
+        <div className='bottomRowProducts'>   
+       <Button onClick={() => handleAddToCart(products._id)} className='cartBtn'>
+       <TbVinyl size={30} className='vinylIcon'/> Add to cart 
         </Button>
         <p className='priceTag'> {products.price}:-</p>
         </div>
       </li>
     )}
   </ul>
-      
-    </div>
+  </div>
   )
 }
 const Button = styled.button`
-  color: limegreen;
-  border: 2px solid limegreen;
-  background: white;
+  color: white;
+  border: 2px solid white;
+  background: black;
   font-size: 20px;
-  padding: 2px 5px;
-  border-radius: 0px;
+  border-radius: 5px;
   max-height: 80px;
   width: 50%;
   margin-left: 25%;   
   margin-bottom: 10px;
+  display:flex;
+  align-items: center;
+
+  &:hover {
+    color: rgb(241, 198, 6);;
+    border: 2px solid rgb(241, 198, 6);;
+    
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
 `;
 
 export default Products;
