@@ -2,7 +2,6 @@ body {
   font-family: 'Lexend', sans-serif;
   overflow-x: hidden;
 }
-
 a {
   text-decoration: none;
 }
@@ -42,19 +41,11 @@ height: 50px;
   font-weight: bold;
 
 }
-
 .navbarlänk:hover {
   scale: 1.1;
   color:rgb(241, 198, 6);
 }
-
-
-
-
-
-
 /* PRODUCT LIST CARDS */
-
 .bigListImage {
   width: 100%;
   height: 100%;
@@ -316,9 +307,6 @@ input {
   border-bottom: 2px solid #0b0b0b;
   outline: none;
 }
-
-
-
 .imagePreview {
   margin-top: 20px;
   border-radius: 20px;
@@ -326,14 +314,12 @@ input {
   object-fit: contain;
   margin-bottom: 10px;
 }
-
 .backLink {
   display: block;
   margin-top: 10px;
   text-decoration: none;
   color: #007bff;
 }
-
 .updateButton {
   display: block;
   width: 20%;
@@ -345,18 +331,12 @@ input {
   margin-top: 10px;
   cursor: pointer;
 }
-
 .DeleteButton:hover {
   background-color: #4a4e52;
 }
-
 .DeleteButton:hover {
   background-color: #4a4e52;
 }
-
-
-
-
 #createproductnavigering {
   width: 200px;
   height: 40px;
@@ -376,7 +356,6 @@ input {
   border-radius: 5px;
   cursor: pointer;
 }
-
 #createproductnavigering:hover {
   scale: 1.1;
 }
@@ -452,7 +431,6 @@ input {
   border-bottom: 1px solid lightgrey;
 
 }
-
 #checkoutknapp {
   all: unset;
   border-radius: 5px;
@@ -472,7 +450,6 @@ input {
   vertical-align: middle;
   border-bottom: 1px solid lightgrey;
 }
-
 #carthoverdiv tr:hover {
   background-color: lightgray;
 }
@@ -493,8 +470,6 @@ justify-content: center;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
-
   width: 500px;
 }
 #formcontainer{
