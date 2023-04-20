@@ -8,7 +8,7 @@ import { AiFillCreditCard } from 'react-icons/ai';
 import { SiPaypal } from 'react-icons/si'
 
 const Checkout = () => {
-  const { cart, setCart } = useContext(CartContext); // Get cart and setCart from CartContext
+  const { cart, setCart } = useContext(CartContext); 
   const [updatecart, setupdateCart] = useState([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
