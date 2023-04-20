@@ -6,21 +6,19 @@ import styled from 'styled-components';
 const ManageProducts = () => {
   
   const [productList, setProductList] = useState([]);
+    useEffect(() => {
+      fetchProducts()
+    }, []) // Empty array to ensure that this runs only once, on page-reload
 
-  useEffect(() => {
-    fetchProducts()
-  }, []) // Empty array to ensure that this runs only once, on page-reload
-
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch("https://product-api-production-7dbf.up.railway.app/products");
-      const productList = await response.json();
-      setProductList(productList);
-
-    } catch (error) {
-      console.log(error)
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("https://product-api-production-7dbf.up.railway.app/products");
+        const productList = await response.json();
+        setProductList(productList);
+      } catch (error) {
+        console.log(error)
+      }
     }
-  }
   
   
   const deletePun = async (id) => {
@@ -28,8 +26,7 @@ const ManageProducts = () => {
       await fetch("https://product-api-production-7dbf.up.railway.app/products/" + id, {
         method: 'DELETE',
       });
-      
-      
+        
       console.log(id)
       
       fetchProducts();
@@ -37,30 +34,20 @@ const ManageProducts = () => {
       console.log(error)
     }
   }
-
-
+  
   return (
-
     <Manageproductspagediv>
-
-
-
-
       <Styledh1div>
-
-        <h1 id="h1manage" style={{ fontSize: "60px" }}> Manage products</h1>
-        <Link id="createproductnavigering" to="/admin/createProduct">Product <Styledimg id="plusbild" src="../../imgs/9023850_plus_circle_fill_icon.png" /> </Link>
-
+        <h1 
+          id="h1manage" style={{ fontSize: "60px" }}> Manage products
+        </h1>
+        <Link 
+          id="createproductnavigering" to="/admin/createProduct">Product <Styledimg id="plusbild" src="../../imgs/9023850_plus_circle_fill_icon.png" />   
+        </Link>
       </Styledh1div>
-
-
-
       <Styledtable id="table">
-
         <thead style={{ backgroundColor: "rgb(38, 38, 38)", color: "white" }}>
-
           <tr >
-
             <Styledth>Image</Styledth>
             <Styledth>Album</Styledth>
             <Styledth>Artist</Styledth>
@@ -68,14 +55,8 @@ const ManageProducts = () => {
             <Styledth>Price</Styledth>
             <Styledth>stock</Styledth>
             <Styledth>Hantera</Styledth>
-
-
           </tr>
-
         </thead>
-
-
-
         {productList.map((products) =>
           <tbody key={products['_id']}>
             <Styledtr>
@@ -85,23 +66,17 @@ const ManageProducts = () => {
               <Styledtd>{products.releaseyear}</Styledtd>
               <Styledtd>{products.price}</Styledtd>
               <Styledtd>{products.stock}</Styledtd>
-              <Styledtd id="knappcontainer"> <Link id="uppdateraKnapp" to={"/admin/Updateproduct/" + products['_id']}>Change</Link><Styleddeletebutton id="raderaKnapp" onClick={() => { deletePun(products['_id']) }}>Delete</Styleddeletebutton></Styledtd>
-
+              <Styledtd id="knappcontainer"> 
+                <Link id="uppdateraKnapp" to={"/admin/Updateproduct/" + products['_id']}>Change</Link>
+                  <Styleddeletebutton 
+                    id="raderaKnapp" onClick={() => { deletePun(products['_id']) }}>Delete
+                  </Styleddeletebutton>
+              </Styledtd>
             </Styledtr>
-
           </tbody>
-
-
-
-
-
 )}
 
-
       </Styledtable>
-
-
-
     </Manageproductspagediv>
   )
 }
