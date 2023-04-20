@@ -29,7 +29,7 @@ const Products = () => {
       addToCart(products +1);
       setProducts({ ...products, stock: products.stock - 1 });
     
-  };
+    };
 
  
 
