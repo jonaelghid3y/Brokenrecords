@@ -20,7 +20,7 @@ const Styledth = styled.th`
 `;
 
 const Styledtable = styled.table`
-  margin-top: 100px;
+  margin-top: 20px;
   border-collapse: collapse;
   border-bottom: 1px solid grey;
 
@@ -132,7 +132,7 @@ const Cart = ({ cart }) => {
             ))}
           </tbody>
         </Styledtable>
-        <h4>Total price: ${totalPrice}</h4>
+        <h4>Total price: Kr{totalPrice}</h4>
         <Styleddeletebutton style={{marginBottom:"100px"}} onClick={emptyCart}>Empty Cart</Styleddeletebutton>
 
 

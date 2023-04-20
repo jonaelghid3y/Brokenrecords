@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../components/CartContext';
 import uuid4 from "uuid4";
-import Cart from '../components/Cart'
 import { motion, AnimatePresence } from 'framer-motion';
 import {GrChapterNext, GrChapterPrevious} from 'react-icons/gr'
 import { MdStar, MdStarOutline, MdStarHalf} from 'react-icons/md'
@@ -47,7 +46,7 @@ const Products = () => {
     fetchProducts();
   }, []);
   return (
-    <div className='pagediv'>
+    <StyledProductsdiv>
  
 
       <h2 className='hotText'>HOT RIGHT NOW</h2>
@@ -113,9 +112,29 @@ const Products = () => {
       </li>
     )}
   </ul>
-  </div>
+  </StyledProductsdiv>
   )
 }
+const StyledProductsdiv = styled.div`
+
+border: 1px solid black;
+min-height: 535px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding-bottom: 100px;
+min-height: 535px;
+padding-left: 1rem;
+padding-right: 1rem;
+/* background-color: #e6e6e6; */
+background-image: url(../imgs/adrian-korte-5gn2soeAc40-unsplash.jpg);
+/* background-size: 110%;
+background-repeat: no-repeat; */
+
+
+
+`;
 const Button = styled.button`
   color: white;
   border: 2px solid white;

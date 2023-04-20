@@ -136,13 +136,10 @@ const ImgContainer = styled.img`
 const TextBox = styled.div `
   background-color: rgba(255,255,255,.5);
   backdrop-filter: blur(10px);
-
   justify-content: center;
-  align-items: center;
-  
+  align-items: center; 
   padding: 50px;
   margin: 30px 20px 30px 95px;
-  
   text-align: left;
   height: auto;
   width: 600px;

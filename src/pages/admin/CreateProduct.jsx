@@ -3,20 +3,36 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Styleduppdateproductsdiv = styled.div`
-
- 
   min-height: 535px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-bottom: 100px;
-
   min-height: 535px;
   background-image: url(../imgs/notebook-earphones-near-vinyl-record.jpg);
   background-size: contain;
   
   `;
+const Styledform = styled.form`
+
+  background-color: #343030;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+ 
+ 
+`;
+const Styledimg = styled.img`
+  border-radius: 20px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+`;
 
 const CreateProduct = () => {
   const [title, setTitle] = useState('');
@@ -63,9 +79,10 @@ const CreateProduct = () => {
     <Styleduppdateproductsdiv>
 
       <h1 style={{ margin: "50px", color: "white", fontSize: "60px" }}> Create a Product</h1>
-      <form id="form" className="formContainer" onSubmit={handleSubmit}>
+      <Styledform id="form" className="formContainer" onSubmit={handleSubmit}>
         <h4>Album</h4>
         <input
+          style={{ color: "black", fontSize: "15px" }}
           type="text"
           className="titleInput"
           placeholder="Album Title"
@@ -74,6 +91,7 @@ const CreateProduct = () => {
         />
         <h4>Artist</h4>
         <input
+          style={{ color: "black", fontSize: "15px" }}
           type="text"
           className="artistInput"
           placeholder="Artist Name"
@@ -82,6 +100,7 @@ const CreateProduct = () => {
         />
         <h4>Release year</h4>
         <input
+          style={{ color: "black", fontSize: "15px" }}
           type="text"
           className="releaseYearInput"
           pattern="[0-9]{4}"
@@ -91,6 +110,7 @@ const CreateProduct = () => {
         />
         <h4>Genre</h4>
         <input
+          style={{ color: "black", fontSize: "15px" }}
           type="text"
           className="genreInput"
           placeholder="Music Genre"
@@ -99,6 +119,7 @@ const CreateProduct = () => {
         />
         <h4>Price</h4>
         <input
+          style={{ color: "black", fontSize: "15px" }}
           type="number"
           className="priceInput"
           placeholder="Price"
@@ -107,15 +128,17 @@ const CreateProduct = () => {
         />
         <h4>Stock</h4>
         <input
+          style={{ color: "black", fontSize: "15px" }}
           type="number"
           className="stockInput"
           placeholder="Stock"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
         />
-        <img src={image} className="imagePreview" />
+        <img  src={image} className="imagePreview" />
         <h4>Image URL</h4>
         <input
+          style={{ color: "black", fontSize: "15px" }}
           type="text"
           className="imageURLInput"
           placeholder="Image URL"
@@ -127,7 +150,7 @@ const CreateProduct = () => {
           &#8592; Back
         </Link>
 
-      </form>
+      </Styledform>
     </Styleduppdateproductsdiv>
   );
 }

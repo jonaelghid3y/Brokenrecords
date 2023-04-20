@@ -9,11 +9,96 @@ import { AiFillPlusCircle } from 'react-icons/ai';
 import { AiFillMinusCircle } from 'react-icons/ai';
 import { FaTrashAlt } from 'react-icons/fa';
 import "@fontsource/bebas-neue";
-
 import { motion } from "framer-motion"
+import styled from 'styled-components';
+
+
+const StyledNav = styled.nav`
+display: flex;
+align-items: end;
+gap: 16%;
+width: 100%;
+color: white;
+`;
+const Styledicondiv = styled.div`
+display: flex;
+align-items: center;
+flex-direction: row;
+position: absolute;
+right: 150px;
+color: white
+`;
+const Styledloggadiv = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 250px;
+height: 100px;
+margin-left: 100px;
+font-size: 40px;
+font-family: "Bebas Neue";
+
+`;
+const Styledlogdiv1 = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+
+
+`;
+const Stylednavbar = styled.div`
+
+display: flex;
+flex-direction: row;
+gap: 20px;
+text-decoration: none;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+color: white;
+font-size: 20px;
+font-weight: bold;
+transition: 1s;
+`;
+
+const Stylednavbarlänk = styled.p`
+
+text-decoration: none;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+color: white;
+font-size: 25px;
+font-weight: bold;
+
+&:hover{
+  scale: 1.1;
+  color:rgb(241, 198, 6);
+
+}
+`;
+const Styledcartbutton = styled.div`
+display: flex;
+align-items: center;
+`;
+const Styledcartcount = styled.span`
+
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 20px;
+border-radius: 50%;
+width: 20px;
+height: 20px;
+font-weight: bolder;
+background-color: rgb(241, 198, 6);
+color: rgb(14, 13, 13);
+
+`;
+
 
 
 const Nav = () => {
+
+
+
   const location = useLocation();
   const { cart, setCart, addProduct, reduceProduct, removeProduct } = useContext(CartContext);
 
@@ -53,48 +138,40 @@ const Nav = () => {
   const cartLength = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <nav id="nav">
-      <div id="logga">
-        <Link to="/" style={{color: "white"}}>
-          <div id="logdiv1">
-            
-
-              <h1 >BR</h1>
-              <motion.img
-
-
-                whileHover={{ rotate: 720, transition: { duration: 3 } }}
-
-                id="loggabild" src="../imgs/6613381_disc_dj_music_turntable_vinyl_icon.png"></motion.img>
-
-              <h1>KEN</h1> <br />
-
-
-          </div>
+    <StyledNav>
+      <Styledloggadiv>
+        <Link to="/" style={{ color: "white" }}>
+          <Styledlogdiv1>
+            <h1 >BR</h1>
+            <motion.img
+              style={{
+                backgroundcolor: "rgb(241, 198, 6)",
+                borderradius: "50%",
+                width: "50px",
+                height: "50px"
+              }}
+              whileHover={{ rotate: 720, transition: { duration: 3 } }}
+              id="loggabild" src="../imgs/6613381_disc_dj_music_turntable_vinyl_icon.png"></motion.img>
+            <h1>KEN</h1> <br />
+          </Styledlogdiv1>
           <h1>RECORDS</h1>
 
         </Link>
 
-
-
-      </div>
-      <div id="navbar">
+      </Styledloggadiv>
+      <Stylednavbar>
         <Link className="navbarlänk"
           to="/"
-
         >
           Products
-
-
         </Link>
 
-        <p className="navbarlänk">Giftcards </p>
-        <p className="navbarlänk">About </p>
-      </div>
+        <Stylednavbarlänk>Giftcards </Stylednavbarlänk>
+        <Stylednavbarlänk>About </Stylednavbarlänk>
+      </Stylednavbar>
 
-
-      <div id="icondiv">
-        <div id="cartbutton" style={{ marginRight: "10px", color: "white" }}>
+      <Styledicondiv>
+        <Styledcartbutton style={{ marginRight: "10px", color: "white" }}>
           <div
             onMouseEnter={handleCartHover}
             onMouseLeave={handleCartLeave}
@@ -131,7 +208,7 @@ const Nav = () => {
                             </td>
                             <td>
                               <h5>Stock:{Product.stock}</h5>
-                              {Product.price}$
+                              {Product.price} kr
                             </td>
                             <td>
                               <motion.button
@@ -160,7 +237,7 @@ const Nav = () => {
                         ))}
                       </tbody>
                     </table>
-                    <h4 style={{ color: "black" }}>Total price: {totalPrice}$</h4>
+                    <h4 style={{ color: "black" }}>Total price: {totalPrice} kr</h4>
                     <motion.button whileTap={{ scale: 0.9 }} >
                       <Link id="checkoutknapp" to={"/Checkout"}>
                         Checkout
@@ -176,10 +253,10 @@ const Nav = () => {
             )}
           </div>
 
-          <span id="cartcount" style={{ marginRight: "10px" }}>
+          <Styledcartcount style={{ marginRight: "10px" }}>
             {cartLength}
-          </span>
-        </div>
+          </Styledcartcount>
+        </Styledcartbutton>
 
         <Link
           className="icons"
@@ -188,11 +265,8 @@ const Nav = () => {
         >
           <RiUserSettingsLine size={30} />
         </Link>
-      </div>
-
-
-
-    </nav>
+      </Styledicondiv>
+    </StyledNav>
   );
 };
 

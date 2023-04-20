@@ -6,20 +6,6 @@ import { motion } from 'framer-motion';
 import {SiKlarna} from 'react-icons/si';
 import {AiFillCreditCard} from 'react-icons/ai';
 import {SiPaypal} from 'react-icons/si'
-import styled from 'styled-components';
-
-const Styledcheckoutdiv = styled.button`
-background-image: url(../imgs/adrian-korte-5gn2soeAc40-unsplash.jpg);
-background-repeat: no-repeat;
-background-size: cover;
-min-height: 75vh;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction:  column;
-width: 1540px;
-`;
-
 
 const Checkout = () => {
   const { cart, setCart } = useContext(CartContext); // Get cart and setCart from CartContext
@@ -31,15 +17,14 @@ const Checkout = () => {
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
   const [rabbatkod, setrabbatkod] = useState("");
-
- 
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
   
   };
   return (
-    <Styledcheckoutdiv>
+    <div id="checkoutdiv">
       <h1 style={{margin: "40px" ,color:"white", fontSize: "60px"}}>Checkout</h1>
       <div id="formcontainer"> 
       <Cart cart={cart} updatecart={updatecart} setupdateCart={setupdateCart} />
@@ -124,7 +109,7 @@ const Checkout = () => {
       </div>
     
 
-    </Styledcheckoutdiv>
+    </div>
   )
 }
 

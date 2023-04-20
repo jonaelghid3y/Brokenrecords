@@ -1,3 +1,4 @@
+import { color } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -17,6 +18,19 @@ const Styleduppdateproductsdiv = styled.div`
   background-size: contain;
   
   `;
+  const Styledform = styled.form`
+
+  background-color: #343030;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+ 
+ 
+`;
 
 const UpdateProduct = () => {
 
@@ -90,9 +104,10 @@ const UpdateProduct = () => {
     <Styleduppdateproductsdiv>
 
       <h1 style={{ margin: "50px", color: "white", fontSize: "60px" }}> Update a Product</h1>
-      <form id="form" className="formContainer" onSubmit={handleSubmit}>
+      <Styledform  id="form" className="formContainer" onSubmit={handleSubmit}>
         <h4>Album</h4>
         <input
+        style={{color: "black" ,fontSize:"15px"}}
           type="text"
           className="titleInput"
           placeholder="Album Title"
@@ -101,6 +116,7 @@ const UpdateProduct = () => {
         />
         <h4>Artist</h4>
         <input
+        style={{color: "black" ,fontSize:"15px"}}
           type="text"
           className="artistInput"
           placeholder="Artist Name"
@@ -109,6 +125,7 @@ const UpdateProduct = () => {
         />
         <h4>Release year</h4>
         <input
+        style={{color: "black" ,fontSize:"15px"}}
           type="text"
           className="releaseYearInput"
           pattern="[0-9]{4}"
@@ -118,6 +135,7 @@ const UpdateProduct = () => {
         />
         <h4>Genre</h4>
         <input
+        style={{color: "black" ,fontSize:"15px"}}
           type="text"
           className="genreInput"
           placeholder="Music Genre"
@@ -126,6 +144,7 @@ const UpdateProduct = () => {
         />
         <h4>Price</h4>
         <input
+        style={{color: "black" ,fontSize:"15px"}}
           type="number"
           className="priceInput"
           placeholder="Price"
@@ -134,6 +153,7 @@ const UpdateProduct = () => {
         />
         <h4>Stock</h4>
         <input
+        style={{color: "black" ,fontSize:"15px"}}
           type="number"
           className="stockInput"
           placeholder="Stock"
@@ -143,6 +163,7 @@ const UpdateProduct = () => {
         <img src={image} className="imagePreview" />
         <h4>Image URL</h4>
         <input
+        style={{color: "black" ,fontSize:"15px"}}
           type="text"
           className="imageURLInput"
           placeholder="Image URL"
@@ -154,7 +175,7 @@ const UpdateProduct = () => {
           &#8592; Back
         </Link>
 
-      </form>
+      </Styledform>
 
 
 
