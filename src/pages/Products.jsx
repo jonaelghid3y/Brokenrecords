@@ -128,7 +128,7 @@ min-height: 535px;
 padding-left: 1rem;
 padding-right: 1rem;
 /* background-color: #e6e6e6; */
-background-image: url(../imgs/adrian-korte-5gn2soeAc40-unsplash.jpg);
+background-image: url(https://images.unsplash.com/photo-1458560871784-56d23406c091?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
 /* background-size: 110%;
 background-repeat: no-repeat; */
 

@@ -42,7 +42,7 @@ const ManageProducts = () => {
           id="h1manage" style={{ fontSize: "60px" }}> Manage products
         </h1>
         <Link 
-          id="createproductnavigering" to="/admin/createProduct">Product <Styledimg id="plusbild" src="../../imgs/9023850_plus_circle_fill_icon.png" />   
+          id="createproductnavigering" to="/admin/createProduct">Product <Styledimg id="plusbild" src="https://cdn.iconfinder.com/stored_data/1021529/128/png?token=1683286118-E%2BbDdEXfZ1mLDdPa%2FMVz12grvcTQbZ3bb164dN1wHgo%3D" />   
         </Link>
       </Styledh1div>
       <Styledtable id="table">
@@ -91,7 +91,7 @@ const Manageproductspagediv = styled.div`
   flex-direction: column;
   padding-bottom: 100px;
   min-height: 535px;
-  background-image: url(../imgs/jamakassi-wejxKZ-9IZg-unsplash.jpg);
+  background-image: url(https://images.unsplash.com/photo-1541667816405-e38aca4ca38d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   background-size: cover;
 `;
 

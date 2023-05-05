@@ -67,7 +67,7 @@ const Nav = () => {
                 height: "50px"
               }}
               whileHover={{ rotate: 720, transition: { duration: 3 } }}
-              id="loggabild" src="../imgs/6613381_disc_dj_music_turntable_vinyl_icon.png"></motion.img>
+              id="loggabild" src="https://cdn4.iconfinder.com/data/icons/music-209/32/Music_dj_turntable_vinyl_disc-256.png"></motion.img>
             <h1>KEN</h1> <br />
           </Styledlogdiv1>
           <h1>RECORDS</h1>
